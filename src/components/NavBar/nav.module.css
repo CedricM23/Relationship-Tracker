@@ -29,8 +29,8 @@
 
 
 @media only screen and (max-width: 700px) {
-    .navbar{
-        display: none;
+    /* .navbar{
+        display: flex;
     }
     .mobilenavbar{
         justify-content: center;
@@ -41,6 +41,6 @@
     .mobileTopBar{
         display: flex;
         justify-content: center;
-    }
+    } */
 
 }

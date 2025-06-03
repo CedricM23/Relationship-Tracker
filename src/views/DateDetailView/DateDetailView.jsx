@@ -10,6 +10,8 @@ export default function DateDetailView() {
     const { id } = useParams();
     const [date] = useState(DatesService.getDateById(id))
 
+    //make this dynamic maybe the user can choose what kind of view they want? using a ternary operator??
+
     return (
         <>
             <section className={styles.DateDetail}>

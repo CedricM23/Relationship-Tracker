@@ -70,6 +70,7 @@ iframe {
   border-radius: 16px;
   padding: 1rem;
   box-shadow: 0 4px 12px rgba(255, 105, 180, 0.49);
+  height: 100%;
 }
 
 .songtitle{
@@ -115,5 +116,7 @@ iframe {
 }
 .leftsection{
   margin: 0%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 }
