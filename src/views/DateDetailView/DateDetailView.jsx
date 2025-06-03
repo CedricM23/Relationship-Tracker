@@ -19,15 +19,13 @@ export default function DateDetailView() {
 
     return (
         <>
-            <div id='Fancy'>
-                <section className={scrapbookMode ? scrapbook.DateDetail : styles.DateDetail}>
-                    <div className={styles.titleslide}>
+          <div className={styles.titleslide}>
                         <div className={styles.container}>
                             <span className={styles.slidertext}>Fancy</span>
                             <ToggleSwitch isOn={scrapbookMode} onToggle={setScrapbookMode} />
                             <span className={styles.slidertext}>Scrapbook</span>
                         </div>
-                        <h2 className={styles.title}>{date.name}</h2>
+                        <h2 className={styles.title}>{scrapbookMode ? <div><span className={scrapbook.titleflower}>🌸</span>{date.articleTitle}<span className={scrapbook.titleflower}>🌸</span></div> : `${date.name}` }</h2>
                         <h1 className={styles.righttitle}></h1>
                         <div className={styles.mobilecontainer}>
                             <span className={styles.slidertext}>Fancy</span>
@@ -35,39 +33,54 @@ export default function DateDetailView() {
                             <span className={styles.slidertext}>Scrapbook</span>
                         </div>
                     </div>
-                    <section className={scrapbookMode ? scrapbook.body : styles.body}>
-                        <p className={scrapbookMode ? scrapbook.subtitle : styles.subtitle}>{date.articleTitle} — {date.datetime}</p>
-                        <section className={scrapbookMode ? scrapbook.trying : styles.trying}>
-                            <div className={scrapbookMode ? scrapbook.leftsection : styles.leftsection}>
-                                <p className={scrapbookMode ? scrapbook.leftcaption : styles.songtitle}>The song that reminds me of this date:</p>
-                                <div className={scrapbookMode ? scrapbook.album : styles.album}>
-                                    <iframe src={date.song}
-                                        loading="eager"
-                                        className={scrapbookMode ? scrapbook.song : styles.song}
-                                        allowFullScreen allow="encrypted-media *; fullscreen *; clipboard-write *;" ></iframe>
-                                </div>
-                                <p className={scrapbookMode ? scrapbook.leftcaption : styles.songtitle}>Location:</p>
-                                <iframe src={date.location}
-                                    loading="eager">
-                                </iframe>
-                            </div>
-                            <div className={scrapbookMode ? scrapbook.articlebody : styles.articlebody}>
-                                <p>
-                                    {date.Description.map(
-                                        (paragraph, key) => (
-                                            <p key={key}>{paragraph}</p>
-                                        )
-                                    )}
-                                </p>
-                            </div>
-                        </section>
+
+            {scrapbookMode ? 
+            <>
+            <div id='Scrapbook'>
+                <section className={scrapbook.DateDetail}>
+                    <section>
+                        <p className={styles.subtitle}>{date.name} — {date.datetime}</p>
                     </section>
                 </section>
-                <aside className={styles.backbutton}>
-                    <Link to='/dates' className={styles.links}>
-                        <FontAwesomeIcon icon={faArrowLeft} className={styles.backbuttonicon} />Back to dates</Link>
-                </aside>
             </div>
+            </>:
+                <>
+                    <div id='Fancy'>
+                        <section className={styles.DateDetail}>
+                            <section className={styles.body}>
+                                <p className={styles.subtitle}>{date.articleTitle} — {date.datetime}</p>
+                                <section className={styles.trying}>
+                                    <div className={styles.leftsection}>
+                                        <p className={styles.songtitle}>The song that reminds me of this date:</p>
+                                        <div className={styles.album}>
+                                            <iframe src={date.song}
+                                                loading="eager"
+                                                className={styles.song}
+                                                allowFullScreen allow="encrypted-media *; fullscreen *; clipboard-write *;" ></iframe>
+                                        </div>
+                                        <p className={styles.songtitle}>Location:</p>
+                                        <iframe src={date.location}
+                                            loading="eager">
+                                        </iframe>
+                                    </div>
+                                    <div className={styles.articlebody}>
+                                        <p>
+                                            {date.Description.map(
+                                                (paragraph, key) => (
+                                                    <p key={key}>{paragraph}</p>
+                                                )
+                                            )}
+                                        </p>
+                                    </div>
+                                </section>
+                            </section>
+                        </section>
+                        <aside className={styles.backbutton}>
+                            <Link to='/dates' className={styles.links}>
+                                <FontAwesomeIcon icon={faArrowLeft} className={styles.backbuttonicon} />Back to dates</Link>
+                        </aside>
+                    </div>
+                </>}
         </>
     )
 }
