@@ -109,4 +109,11 @@ iframe {
 iframe {
     width:100%;
 }
+.articlebody{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.leftsection{
+  margin: 0%;
+}
 }
