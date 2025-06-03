@@ -101,3 +101,13 @@ iframe {
   font-size: small;
   margin-right: 5px;
 }
+
+@media only screen and (max-width: 1500px) {
+  .trying{
+  flex-direction: column;
+}
+iframe {
+    width:500px;
+   
+}
+}
