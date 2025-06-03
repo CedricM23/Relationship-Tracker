@@ -6,6 +6,7 @@ import styles from './DateCard.module.css'
 
 export default function DateCard({date}){
     return (
+        <>
         <article className={styles.datecard}>
             <Link to={`/dates/${date.id}`} className={styles.links}>
             <img className={styles.image} src={date.imageOfPlace}/>
@@ -14,5 +15,6 @@ export default function DateCard({date}){
             </h3>
             </Link>
         </article>
+        </>
     )
 }
