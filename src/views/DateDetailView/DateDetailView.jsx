@@ -5,7 +5,7 @@ import styles from './DateDetailView.module.css'
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import scrapbook from './scrapbookDateDetailView.module.css'
+import scrapbook from './ScrapbookDateDetailView.module.css'
 import ToggleSwitch from "../../components/ToggleSwitch/ToggleSwitch";
 
 export default function DateDetailView() {
