@@ -7,6 +7,7 @@ import DateDetailView from './views/DateDetailView/DateDetailView.jsx'
 function App() {
   return (
     <>
+      <title>Relationship Tracker</title>
       <BrowserRouter>
       <NavBar />
       <Routes>

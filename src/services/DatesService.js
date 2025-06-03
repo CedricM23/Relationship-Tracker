@@ -10,6 +10,9 @@ export default {
     
 }
 
+let placeholderImage = 'https://placehold.co/600x400';
+
+
 const dates = [
     {
         id: 1,
@@ -29,11 +32,16 @@ const dates = [
     {
         id: 2,
         name: 'placeholder',
-        imageOfPlace: 'https://placehold.co/600x400',
+        imageOfPlace: placeholderImage,
     },
     {
         id: 3,
         name: 'placeholder',
-        imageOfPlace: 'https://placehold.co/600x400',
+        imageOfPlace: placeholderImage,
+    },
+    {
+        id: 3,
+        name: 'placeholder',
+        imageOfPlace: placeholderImage,
     }
 ]
