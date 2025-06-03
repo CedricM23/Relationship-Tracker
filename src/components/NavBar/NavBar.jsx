@@ -20,7 +20,6 @@ export default function NavBar(){
         <nav className={styles.navbar}>
             <Link to="/" className={styles.links}>Home</Link>
             <Link to="/dates" className={styles.links}>Our Dates</Link>
-            <Link to ="/pictures" className={styles.links}>Images</Link>
             <Link to="/shows" className={styles.links}>Our Shows</Link>
             <Link to="/shows" className={styles.links}>About us</Link>
         </nav>
@@ -29,7 +28,6 @@ export default function NavBar(){
             <div className={styles.mobilenavbar} id='navlinks'>
             <Link to="/" className={styles.links}>Home</Link>
             <Link to="/dates" className={styles.links}>Our Dates</Link>
-            <Link to ="/pictures" className={styles.links}>Images</Link>
             <Link to="/shows" className={styles.links}>Our Shows</Link>
             <Link to="/shows" className={styles.links}>About us</Link>
             </div>
