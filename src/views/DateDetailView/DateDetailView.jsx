@@ -19,34 +19,51 @@ export default function DateDetailView() {
 
     return (
         <>
-          <div className={styles.titleslide}>
-                        <div className={styles.container}>
-                            <span className={styles.slidertext}>Fancy</span>
-                            <ToggleSwitch isOn={scrapbookMode} onToggle={setScrapbookMode} />
-                            <span className={styles.slidertext}>Scrapbook</span>
-                        </div>
-                        <h2 className={styles.title}>{scrapbookMode ? <div><span className={scrapbook.titleflower}>🌸</span>{date.articleTitle}<span className={scrapbook.titleflower}>🌸</span></div> : `${date.name}` }</h2>
-                        <h1 className={styles.righttitle}></h1>
-                        <div className={styles.mobilecontainer}>
-                            <span className={styles.slidertext}>Fancy</span>
-                            <ToggleSwitch isOn={scrapbookMode} onToggle={setScrapbookMode} />
-                            <span className={styles.slidertext}>Scrapbook</span>
-                        </div>
-                    </div>
 
-            {scrapbookMode ? 
-            <>
-            <div id='Scrapbook'>
-                <section className={scrapbook.DateDetail}>
-                    <section>
-                        <p className={styles.subtitle}>{date.name} — {date.datetime}</p>
-                    </section>
-                </section>
-            </div>
-            </>:
+            {scrapbookMode ?
+                <>
+                    <div id='Scrapbook'>
+                        <div className={styles.titleslide}>
+                            <div className={styles.container}>
+                                <span className={styles.slidertext}>Fancy</span>
+                                <ToggleSwitch isOn={scrapbookMode} onToggle={setScrapbookMode} />
+                                <span className={styles.slidertext}>Scrapbook</span>
+                            </div>
+                            <h2 className={scrapbook.title}>
+                                <span>🌸</span>{date.articleTitle}<span>🌸</span>
+                            </h2>
+                            <h1 className={styles.righttitle}></h1>
+                            <div className={styles.mobilecontainer}>
+                                <span className={styles.slidertext}>Fancy</span>
+                                <ToggleSwitch isOn={scrapbookMode} onToggle={setScrapbookMode} />
+                                <span className={styles.slidertext}>Scrapbook</span>
+                            </div>
+                        </div>
+                        <section className={scrapbook.DateDetail}>
+
+                            <section>
+                                <p className={scrapbook.subtitle}>{date.name} — {date.datetime}</p>
+                            </section>
+                        </section>
+                    </div>
+                </> :
                 <>
                     <div id='Fancy'>
                         <section className={styles.DateDetail}>
+                            <div className={styles.titleslide}>
+                                <div className={styles.container}>
+                                    <span className={styles.slidertext}>Fancy</span>
+                                    <ToggleSwitch isOn={scrapbookMode} onToggle={setScrapbookMode} />
+                                    <span className={styles.slidertext}>Scrapbook</span>
+                                </div>
+                                <h2 className={styles.title}>{date.name}</h2>
+                                <h1 className={styles.righttitle}></h1>
+                                <div className={styles.mobilecontainer}>
+                                    <span className={styles.slidertext}>Fancy</span>
+                                    <ToggleSwitch isOn={scrapbookMode} onToggle={setScrapbookMode} />
+                                    <span className={styles.slidertext}>Scrapbook</span>
+                                </div>
+                            </div>
                             <section className={styles.body}>
                                 <p className={styles.subtitle}>{date.articleTitle} — {date.datetime}</p>
                                 <section className={styles.trying}>
