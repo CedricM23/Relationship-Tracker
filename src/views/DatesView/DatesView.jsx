@@ -1,6 +1,6 @@
 import { use, useEffect, useState } from 'react'
 import DatesService from '../../services/DatesService'
-import styles from "./Datesview.module.css"
+import styles from "./DatesView.module.css"
 import DateCard from '../../components/DateCard/DateCard'
 
 export default function Datesview(){
