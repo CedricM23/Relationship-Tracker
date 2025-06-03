@@ -1,0 +1,19 @@
+.title{
+    text-align: center;
+    margin-bottom: -10px;
+}
+
+
+.dategrid{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.subtitle{
+    color: #4b5563; /* Tailwind's text-gray-600 */
+  margin-bottom: 1rem; /* Tailwind's mb-4 */
+  font-size: 1.125rem; /* Tailwind's text-lg */
+  font-style: italic;
+  text-align: center;
+}

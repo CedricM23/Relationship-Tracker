@@ -1,0 +1,30 @@
+.datecard{
+    width: 600px;
+    margin-right: 10px;
+}
+
+
+.image{
+    width: 600px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.title{
+    text-align: right;
+    font-size: medium;
+    color: #C11C84;
+}
+
+.datecard-list-view{
+    display: flex;
+}
+
+.icon{
+    margin-left: 10px;
+    font-size: small;
+}
+
+.links{
+    text-decoration: none;
+}

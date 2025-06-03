@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.title{
+    text-align: center;
+    font-size:  xx-large;
+    margin-bottom: -10px;
+    font-family: "Libre Baskerville", serif;
+}
+
+.links{
+    color: black;
+    text-decoration: none;
+    font-size: large;
+}
+
+.links:hover{
+    text-decoration: underline;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.trying{
+  display: flex;
+}
+
+
+
+.song{
+    width: 600px; 
+    height: 100%; 
+    border: 0;
+}
+
+.album{
+    display: flex;
+    height: 200px;
+    align-items: flex-start;
+}
+
+.subtitle{
+  color: #4b5563; /* Tailwind's text-gray-600 */
+  margin-bottom: 1rem; /* Tailwind's mb-4 */
+  font-size: 1.125rem; /* Tailwind's text-lg */
+  font-style: italic;
+  text-align: center;
+}
+
+
+.articleDate {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+iframe {
+    width:600px;
+    height:450px ;
+    border:0px;
+    border-radius: 10px;
+}
+
+.leftsection{
+  text-align: center;
+  margin-left: 10px;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.49);
+}
+
+.songtitle{
+  color: #4b5563; /* Tailwind's text-gray-600 */
+  margin-bottom: 1rem; /* Tailwind's mb-4 */
+  font-size: 1.125rem; /* Tailwind's text-lg */
+  font-style: italic;
+  text-align: center;
+}
+
+.articlebody{
+  margin-left: 80px;
+  margin-right: 80px;
+  font-size: x-large;
+  line-height: 1.2;
+  font-family:'Libre Baskerville', Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.backbutton{
+  text-align: right;
+  bottom: 0;
+}
+
+.backbuttonicon{
+  font-size: small;
+  margin-right: 5px;
+}
