@@ -3,6 +3,7 @@ import NavBar from './components/NavBar/NavBar.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Datesview from './views/DatesView/DatesView.jsx'
 import DateDetailView from './views/DateDetailView/DateDetailView.jsx'
+import './App.css'
 
 function App() {
   return (

@@ -16,9 +16,9 @@ export default function DateDetailView() {
 
     const [scrapbookMode, setScrapbookMode] = useState(false);
 
+
     return (
         <>
-
             <div id='Fancy'>
                 <section className={scrapbookMode ? scrapbook.DateDetail : styles.DateDetail}>
                     <div className={styles.titleslide}>
@@ -39,22 +39,26 @@ export default function DateDetailView() {
                         <p className={scrapbookMode ? scrapbook.subtitle : styles.subtitle}>{date.articleTitle} — {date.datetime}</p>
                         <section className={scrapbookMode ? scrapbook.trying : styles.trying}>
                             <div className={scrapbookMode ? scrapbook.leftsection : styles.leftsection}>
-                                <p className={scrapbookMode ? scrapbook.songtitle : styles.songtitle}>The song that reminds me of this date:</p>
+                                <p className={scrapbookMode ? scrapbook.leftcaption : styles.songtitle}>The song that reminds me of this date:</p>
                                 <div className={scrapbookMode ? scrapbook.album : styles.album}>
                                     <iframe src={date.song}
                                         loading="eager"
                                         className={scrapbookMode ? scrapbook.song : styles.song}
                                         allowFullScreen allow="encrypted-media *; fullscreen *; clipboard-write *;" ></iframe>
                                 </div>
-                                <p className={scrapbookMode ? scrapbook.songtitle : styles.songtitle}>Location:</p>
+                                <p className={scrapbookMode ? scrapbook.leftcaption : styles.songtitle}>Location:</p>
                                 <iframe src={date.location}
                                     loading="eager">
                                 </iframe>
                             </div>
                             <div className={scrapbookMode ? scrapbook.articlebody : styles.articlebody}>
-                                <p>{date.Descriptionp1}</p>
-                                <p>{date.Descriptionp2}</p>
-                                <p>{date.Descriptionp3}</p>
+                                <p>
+                                    {date.Description.map(
+                                        (paragraph, key) => (
+                                            <p key={key}>{paragraph}</p>
+                                        )
+                                    )}
+                                </p>
                             </div>
                         </section>
                     </section>
