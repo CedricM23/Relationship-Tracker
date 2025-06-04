@@ -71,6 +71,18 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 1000px) {
- 
+@media only screen and (max-width: 1200px) {
+ .midsection{
+  flex-direction: column;
+  align-items: center;
+ }
+ .polaroid{
+  transform: rotate(0deg);
+ }
+ .mapsection{
+  width: 80%;
+ }
+ .photosection{
+  margin-bottom: 50px;
+ }
 }
