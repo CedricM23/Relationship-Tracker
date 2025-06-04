@@ -25,6 +25,14 @@
     justify-content: space-evenly;
 }
 
+.mapcaption{
+  color: #4b5563; /* Tailwind's text-gray-600 */
+  margin-bottom: 1rem; /* Tailwind's mb-4 */
+  font-size: 1.125rem; /* Tailwind's text-lg */
+  font-style: italic;
+  text-align: center;
+}
+
 
     .polaroid {
       width: 400px; /* Or desired width */
@@ -56,5 +64,9 @@
     }
 
 .containtertext{
+  color: #4b5563; /* Tailwind's text-gray-600 */
+  margin-bottom: 1rem; /* Tailwind's mb-4 */
+  font-size: 1.125rem; /* Tailwind's text-lg */
+  font-style: italic;
   text-align: center;
 }

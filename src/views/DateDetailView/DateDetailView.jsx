@@ -56,8 +56,8 @@ export default function DateDetailView() {
                             </section>
                             <section className={scrapbook.mapsection}>
                                 <div className={scrapbook.map}>
-                                     <div className={scrapbook.mapcaption}>
-                                        <p>The room where it happened:</p>
+                                     <div>
+                                        <p className={scrapbook.mapcaption}>The room where it happened:</p>
                                     </div>
                                     <iframe src={date.location}
                                         loading="eager">
