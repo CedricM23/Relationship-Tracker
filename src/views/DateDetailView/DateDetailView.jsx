@@ -21,6 +21,7 @@ export default function DateDetailView() {
         <>
 
             {scrapbookMode ?
+                //========================== TRUE - SCRAPBOOK =======================
                 <>
                     <div id='Scrapbook'>
                         <div className={styles.titleslide}>
@@ -39,15 +40,38 @@ export default function DateDetailView() {
                                 <span className={styles.slidertext}>Scrapbook</span>
                             </div>
                         </div>
-                        <section className={scrapbook.DateDetail}>
-
-                            <section>
-                                <p className={scrapbook.subtitle}>{date.name} — {date.datetime}</p>
-                            </section>
+                        <section className={scrapbook.body}>
+                            <p className={scrapbook.subtitle}>{date.name} — {date.datetime}</p>
                         </section>
+                        <div className={scrapbook.midsection}>
+                            <section className={scrapbook.photosection}>
+
+                                <div class={scrapbook.polaroid}>
+                                    <img src="your-image.jpg" alt="Image Description" />
+                                    <div class={scrapbook.container}>
+                                        <p class={scrapbook.containtertext}>{date.scrapbookImageCaption}</p>
+                                    </div>
+                                </div>
+
+                            </section>
+                            <section className={scrapbook.mapsection}>
+                                <div className={scrapbook.map}>
+                                     <div className={scrapbook.mapcaption}>
+                                        <p>The room where it happened:</p>
+                                    </div>
+                                    <iframe src={date.location}
+                                        loading="eager">
+                                    </iframe>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </> :
+                // ================ FALSE - FANCY ======================
                 <>
+
+
+
                     <div id='Fancy'>
                         <section className={styles.DateDetail}>
                             <div className={styles.titleslide}>
