@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import ShowService from "../../services/ShowService"
 import MediaCard from "../../components/MediaCard/MediaCard"
 import styles from './Watchlistview.module.css'
-import WatchlistNav from "../../components/WatchlistNavBar/WatchlistNav.JSX"
+import WatchlistNav from "../../components/WatchlistNavBar/WatchlistNav.jsx"
 
 export default function WatchlistView() {
     const [media, setMedia] = useState([]);
