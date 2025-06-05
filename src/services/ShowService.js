@@ -3,7 +3,7 @@ import axios from "axios";
 const watchlistAPI = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
     headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzBkMGVlNGZmMDJhYWRjNzQ0OWM0MTUwZWQ1YWIxOSIsIm5iZiI6MTc0ODQwMjkxMS40Mywic3ViIjoiNjgzNjgyZGY5NDU4NGFmNWFlMDU1ZmVkIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.ixd4o66_wDMDUOrNzA0IMpkQ7vWOvt9POXuA9VVGe_8`
+        Authorization: placeholder
     }
 })
 

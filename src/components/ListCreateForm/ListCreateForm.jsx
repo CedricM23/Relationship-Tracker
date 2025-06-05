@@ -9,21 +9,21 @@ export default function ListCreateForm() {
         <div>
             <h1>Create a list:</h1>
             <form id="CreateListForm" className={styles.list}>
-                <div>
+                <div className={styles.formitem}>
                     <label htmlFor="name">List Name: </label>
                     <input type="text" name="name" id="name" />
                 </div>
-                <div>
+                <div className={styles.formitem}>
                     <label htmlFor="Description">Description: </label>
                     <input type="text" name="Description" id="Description" />
                 </div>
-                <div>
+                <div className={styles.formitem}>
                     <label htmlFor="language">Language: </label>
                     <select id="language" name="language">
                         <option value="en">English</option>
                     </select>
                 </div>
-                <div>
+                <div className={styles.formitem}>
                 <button type="submit">Create List</button>
                 </div>
             </form>
