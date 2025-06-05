@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 .title{
     color: #f48fb1;
@@ -61,6 +60,13 @@
       width: calc(100% - 20px);
       padding: 10px;
       text-align: center;
+      clip-path: polygon(
+        0 0,
+        70% 0,
+        100% 100%,
+        0% 100%
+      ); /* Adjust percentages for wavy shape */
+      z-index: -1;       /* Place behind the image */
     }
 
 .containtertext{

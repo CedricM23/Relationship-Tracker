@@ -1,0 +1,27 @@
+.mediagrid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.leftsection{
+    flex :1;
+}
+
+.sectiontitle{
+    font-size: xx-large;
+    flex: 1;
+}
+
+.filtersection{
+    flex: 1;
+}
+
+.filter{
+    align-content: center;
+}

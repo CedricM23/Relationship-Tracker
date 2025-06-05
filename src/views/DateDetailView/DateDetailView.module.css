@@ -90,7 +90,10 @@ iframe {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+}
+
+.articlebody{
+  text-align: left;
 }
 
 .backbutton{

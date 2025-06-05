@@ -15,21 +15,22 @@ export default function NavBar(){
     x.style.display = "block";
     }
     }
+
     return(
         <>
         <nav className={styles.navbar}>
             <Link to="/" className={styles.links}>Home</Link>
             <Link to="/dates" className={styles.links}>Our Dates</Link>
-            <Link to="/shows" className={styles.links}>Our Shows</Link>
-            <Link to="/shows" className={styles.links}>About us</Link>
+            <Link to="/shows" className={styles.links}>Watchlist</Link>
+            <Link to="/about-us" className={styles.links}>About us</Link>
         </nav>
         <nav className={styles.mobileTopBar}>
             <button onClick={myFunction} className={styles.mobilemenubutton}>X</button>
             <div className={styles.mobilenavbar} id='navlinks'>
             <Link to="/" className={styles.links}>Home</Link>
             <Link to="/dates" className={styles.links}>Our Dates</Link>
-            <Link to="/shows" className={styles.links}>Our Shows</Link>
-            <Link to="/shows" className={styles.links}>About us</Link>
+            <Link to="/shows" className={styles.links}>Watchlist</Link>
+            <Link to="/about-us" className={styles.links}>About us</Link>
             </div>
         </nav>
     </>

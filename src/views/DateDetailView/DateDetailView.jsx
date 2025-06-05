@@ -43,7 +43,9 @@ export default function DateDetailView() {
                         <section className={scrapbook.body}>
                             <p className={scrapbook.subtitle}>{date.name} — {date.datetime}</p>
                         </section>
+                        {/* PHOTO AND MAP SECTION */}
                         <div className={scrapbook.midsection}>
+                            {/* PHOTO SECTION */}
                             <section className={scrapbook.photosection}>
 
                                 <div class={scrapbook.polaroid}>
@@ -54,9 +56,10 @@ export default function DateDetailView() {
                                 </div>
 
                             </section>
+                            {/* SCARPBOOK SECTION */}
                             <section className={scrapbook.mapsection}>
                                 <div className={scrapbook.map}>
-                                     <div>
+                                    <div>
                                         <p className={scrapbook.mapcaption}>The room where it happened:</p>
                                     </div>
                                     <iframe src={date.location}
@@ -64,6 +67,14 @@ export default function DateDetailView() {
                                     </iframe>
                                 </div>
                             </section>
+                        </div>
+                        {/* TEXT ON NOTEBOOK PAPER */}
+                      <div>
+                        
+                      </div>
+                        {/* CASSETE PLAYER */}
+                        <div>
+
                         </div>
                     </div>
                 </> :
@@ -105,13 +116,11 @@ export default function DateDetailView() {
                                         </iframe>
                                     </div>
                                     <div className={styles.articlebody}>
-                                        <p>
                                             {date.Description.map(
                                                 (paragraph, key) => (
-                                                    <p key={key}>{paragraph}</p>
+                                                    <p className={styles.articlebody}key={key}>{paragraph}</p>
                                                 )
                                             )}
-                                        </p>
                                     </div>
                                 </section>
                             </section>
