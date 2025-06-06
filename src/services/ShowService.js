@@ -24,11 +24,11 @@ export default {
         return watchlistAPI.get(`/movie/${movie_id}`)
     },
     createlist(body){
-        return watchlistAPI.post(`https://api.themoviedb.org/3/list`, body);
+        return watchlistAPI.post(`/list`, body);
     },
     getlists(){
-        return watchlistAPI.get(`https://api.themoviedb.org/3/account/22039344/lists`);
+        return watchlistAPI.get(`/account/22039344/lists`);
     }, deleteListById(list_id){
-        return watchlistAPI.delete(`https://api.themoviedb.org/3/list/${list_id}`)
+        return watchlistAPI.delete(`/list/${list_id}`)
     }
 }
