@@ -48,7 +48,7 @@ export default function FavoritesView() {
             <div className={styles.form} id="form">
                 <ListCreateForm />
             </div>
-            {lists.length < 1 ? <div className={styles.notext}>create a new list to get started</div> :
+            {lists.length < 1 ? <div className={styles.notext}>Create a new list to get started</div> :
                 <div>
                     {lists.map(
                         (list) => (
