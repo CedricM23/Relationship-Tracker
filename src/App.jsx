@@ -7,6 +7,9 @@ import TrendingView from './views/TrendingView/TrendingView.jsx'
 import MediaDetailView from './views/MediaDetailView/MediaDetailView.jsx'
 import './App.css'
 import FavoritesView from './views/FavoritesView/FavoritesView.jsx'
+import ShowsView from './views/ShowsView/ShowsView.jsx'
+import WatchlistView from './views/WatchlistView/Watchlistview.jsx'
+import MoviesView from './views/MoviesView/MoviesView.jsx'
 
 function App() {
   return (
@@ -17,10 +20,12 @@ function App() {
       <Routes>
       <Route path='/dates' element={<Datesview/>} />
       <Route path='dates/:id' element={<DateDetailView/>} />
-      <Route path='/shows' element={<TrendingView/>} />
+      <Route path='/Watchlist' element={<WatchlistView/>} />
       <Route path='watchlist/:id/:type' element={<MediaDetailView/>} />
       <Route path='/trending' element={<TrendingView/>} />
       <Route path='/favorites' element={<FavoritesView/>} />
+      <Route path='/shows' element={<ShowsView/>} />
+      <Route path='/movies' element={<MoviesView/>} />
       {/* WATCHLIST */}
       </Routes>
       </BrowserRouter>
