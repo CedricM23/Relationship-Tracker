@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import ShowService from "../../services/ShowService.js"
 import MediaCard from "../../components/MediaCard/MediaCard.jsx"
-import styles from '../TrendingView/TrendingView.module.css'
+import styles from './TrendingView.module.css'
 import WatchlistNav from "../../components/WatchlistNavBar/WatchlistNav.jsx"
 
 export default function TrendingView() {
