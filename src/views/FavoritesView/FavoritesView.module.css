@@ -1,5 +1,44 @@
 .form{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
+
+.listname{
+   text-align: left;
+   font-size: x-large;
+}
+
+.list{
+    margin: 10px;
+}
+
+.notext{
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    align-items: center;
+}
+
+.header{
+    display: flex;
+}
+
+.middlesection{
+    flex: 1;
+}
+
+.headericon{
+    flex: 1;
+    font-size: x-large;
+}
+
+.headerbutton{
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.headerbutton:hover{
+    color: #f48fb1;
+}
+

@@ -24,7 +24,7 @@ export default function MediaCard( { media, imagewidth, title, mediaType }) {
       <>
          {/* placeholder code to test data */}
             <section className={styles.mediacard}>
-                <Link to={`/show/${media.id}/${mediaType}`} className={styles.link}>
+                <Link to={`/watchlist/${media.id}/${mediaType}`} className={styles.link}>
                <img src={`https://image.tmdb.org/t/p/w${imagewidth}/${media.poster_path}`} alt="poster" />
                </Link>
                <section>

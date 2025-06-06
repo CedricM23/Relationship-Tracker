@@ -25,5 +25,10 @@ export default {
     },
     createlist(body){
         return watchlistAPI.post(`https://api.themoviedb.org/3/list`, body);
+    },
+    getlists(){
+        return watchlistAPI.get(`https://api.themoviedb.org/3/account/22039344/lists`);
+    }, deleteListById(list_id){
+        return watchlistAPI.delete(`https://api.themoviedb.org/3/list/${list_id}`)
     }
 }

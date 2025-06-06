@@ -2,5 +2,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.form{
+    margin: 5px;
 }
 

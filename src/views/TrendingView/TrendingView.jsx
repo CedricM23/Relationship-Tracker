@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import ShowService from "../../services/ShowService"
-import MediaCard from "../../components/MediaCard/MediaCard"
-import styles from './Watchlistview.module.css'
+import ShowService from "../../services/ShowService.js"
+import MediaCard from "../../components/MediaCard/MediaCard.jsx"
+import styles from './Trendingview.module.css'
 import WatchlistNav from "../../components/WatchlistNavBar/WatchlistNav.jsx"
 
-export default function WatchlistView() {
+export default function TrendingView() {
     const [media, setMedia] = useState([]);
     const [movies, setMovies] = useState([]);
 
