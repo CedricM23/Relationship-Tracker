@@ -3,7 +3,7 @@ import axios from "axios";
 const watchlistAPI = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
     headers: {
-        Authorization: `bearer ${import.meta.env.VITE_API_KEY}`
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`
     }
 })
 
