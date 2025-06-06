@@ -8,7 +8,7 @@ import MediaDetailView from './views/MediaDetailView/MediaDetailView.jsx'
 import './App.css'
 import FavoritesView from './views/FavoritesView/FavoritesView.jsx'
 import ShowsView from './views/ShowsView/ShowsView.jsx'
-import WatchlistView from './views/WatchlistView/Watchlistview.jsx'
+import WatchlistView from './views/WatchlistView/WatchlistView.jsx'
 import MoviesView from './views/MoviesView/MoviesView.jsx'
 
 function App() {
