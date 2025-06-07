@@ -7,17 +7,30 @@ import WatchlistNav from "../../components/WatchlistNavBar/WatchlistNav.jsx"
 export default function TrendingView() {
     const [media, setMedia] = useState([]);
     const [movies, setMovies] = useState([]);
+    const [loading, setLoading] = useState(true)
+    const [showFilter, setShowFilter] = useState("today");
+
+    function handleShowFilterChange(e){
+          setShowFilter(e.target.value);
+    }
 
     useEffect(() => {
+        if(showFilter === "today"){
         ShowService.trendingToday()
             .then((response) => {
                 setMedia(response.data.results)
             })
+        } else if (showFilter === "popular"){
+            ShowService.getPopularShows()
+            .then((response) => {
+                setMedia(response.data.results)
+            })
+        }
         ShowService.getPopularMovies()
             .then((response) => {
                 setMovies(response.data.results)
             })
-    }, [])
+    }, [showFilter])
 
     return (
         <>
@@ -28,8 +41,9 @@ export default function TrendingView() {
                     <h1 className={styles.sectiontitle}>Trending Tv Shows</h1>
                     <div className={styles.filtersection}>
                         <label htmlFor="filter">Filter : </label>
-                        <select className={styles.filter} name="filter" id="filter">
-                            <option value="Today">Today</option>
+                        <select className={styles.filter} name="filter" id="Showfilter" onChange={handleShowFilterChange}>
+                            <option value="today">Today</option>
+                            <option value="popular">Popular</option>
                         </select>
                     </div>
                 </section>
@@ -45,10 +59,6 @@ export default function TrendingView() {
                         <div className={styles.leftsection}></div>
                         <h1 className={styles.sectiontitle}>Trending Movies</h1>
                         <div className={styles.filtersection}>
-                            <label htmlFor="filter">Filter : </label>
-                            <select className={styles.filter} name="filter" id="filter">
-                                <option value="Today">Popular</option>
-                            </select>
                         </div>
                     </section>
                     <div className={styles.mediagrid}>

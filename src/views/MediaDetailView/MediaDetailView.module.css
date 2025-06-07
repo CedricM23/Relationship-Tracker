@@ -1,0 +1,84 @@
+.videogrid{
+    display: flex;
+    justify-content: center;
+}
+
+.showVideos{
+    margin-right: 10px;
+    margin-left: 10px;
+    overflow: auto;
+}
+
+.videosheader{
+    font-size: xx-large;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.imagesection{
+    background-color: blueviolet;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.imageposter{
+    width: 300px;
+    border-radius: 10px;
+}
+
+.imagecaption{
+    font-size: 18px;
+}
+
+.mediainfo{
+     margin-left: 20px;
+}
+
+
+.medianame{
+    font-size: xx-large;
+    text-align: left;
+    margin-bottom: -15px;
+}
+
+.mediasubtitle{
+    display: flex ;
+    align-items: center;
+}
+
+.mediasubtitledemo{
+    margin-right: 5px;
+}
+
+.genres {
+    display: flex;
+    padding: 0;
+}
+
+.genremap{
+    margin-left: 5px;
+    display: flex;
+}
+
+.genretext{
+    margin-right: 5px;
+}
+
+.rating {
+    font-size: xx-large;
+    text-align: left;
+}
+
+.overviewtitle{
+    text-align: left;
+}
+
+.overview{
+    text-align: left;
+}

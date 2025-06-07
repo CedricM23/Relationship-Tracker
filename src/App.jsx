@@ -24,6 +24,7 @@ function App() {
       <Route path='watchlist/:id/:type' element={<MediaDetailView/>} />
       <Route path='/trending' element={<TrendingView/>} />
       <Route path='/favorites' element={<FavoritesView/>} />
+      <Route path='/upcoming' />
       <Route path='/shows' element={<ShowsView/>} />
       <Route path='/movies' element={<MoviesView/>} />
       {/* WATCHLIST */}

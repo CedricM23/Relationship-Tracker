@@ -10,9 +10,14 @@ const watchlistAPI = axios.create({
 export default {
     trendingToday(){
         return watchlistAPI.get('tv/airing_today');
+    },getPopularShows(){
+        return watchlistAPI.get('tv/popular');
     },
     getShowbyId(series_id){
         return watchlistAPI.get(`tv/${series_id}`)
+    },
+    getviedosbyshow(series_id){
+        return watchlistAPI.get(`tv/${series_id}/videos`)
     },
     getTopRatedMovies(){
         return watchlistAPI.get('movie/top_rated')
