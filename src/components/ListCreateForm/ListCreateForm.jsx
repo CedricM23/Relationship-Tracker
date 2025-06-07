@@ -2,7 +2,7 @@ import { use, useState } from "react"
 import styles from './ListCreateForm.module.css'
 import ShowService from '../../services/ShowService'
 
-export default function ListCreateForm() {
+export default function ListCreateForm({onCreate}) {
     const [newList, setNewList] = useState([])
 
     function updatelist(event){
@@ -11,10 +11,11 @@ export default function ListCreateForm() {
             (response) => {
                 if (response.status === 201){
                     alert('list created')
+                    onCreate();
                 }
             }
         ).catch((error) => {
-            alert('list was not create')
+            alert('List was not created')
         })
         //recall the list
         
@@ -40,7 +41,7 @@ export default function ListCreateForm() {
                     </select>
                 </div>
                 <div className={styles.formitem}>
-                <button type="submit" onSubmit={console.log(newList)}>Create List</button>
+                <button type="submit">Create List</button>
                 </div>
             </form>
         </div>
