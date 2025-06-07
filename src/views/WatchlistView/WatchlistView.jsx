@@ -10,6 +10,7 @@ export default function WatchlistView() {
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(true);
     const [person, setPerson] = useState([])
+    const [shows, setShows] = useState([])
 
     function handleSubmit(event) {
         setSearch(event.target.value)
@@ -26,8 +27,9 @@ export default function WatchlistView() {
             const tvResults = tvRes.data.results || [];
             const peopleResults = pepRes.data.results || []
 
-            setResults([...movieResults, ...tvResults]);
+            setResults(movieResults);
             setPerson(peopleResults)
+            setShows(tvResults)
 
         } catch (error) {
             console.error('Search error:', error);
@@ -53,7 +55,6 @@ export default function WatchlistView() {
             <WatchlistNav />
             {loading ? "loading" :
                 <div>
-                    <h1>Watchlist placeholder</h1>
                     <div className={styles.searchsection}>
                     <div className={styles.section}></div>
                     <input type="text" className={styles.searchbar} onChange={handleSubmit} placeholder="Search for Tv Shows or Movies or People" />
@@ -65,13 +66,18 @@ export default function WatchlistView() {
                             <MediaCard key={result.id} media={result} imagewidth={185} title={result.name? result.name: result.original_title} />
                         )
                     )}
-                    </div>
-                    <div className={styles.imagegrid}>
+                    {shows.map(
+                        (result, index) => (
+                             <MediaCard key={result.id} media={result} imagewidth={185} title={result.name? result.name: result.original_title} />
+                        )
+                    )}
+
+                   
                     {person.map(
                         (result) =>
                            <PersonCard person={result}/>
                     )}
-                    </div>
+                </div>
                 </div>
             }
         </>

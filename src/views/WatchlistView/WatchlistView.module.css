@@ -11,16 +11,19 @@
     border: 1px solid grey;
     justify-content: center;
     font-size: larger;
+    padding: 5px;
     
 }
 
 .searchsection{
     display: flex;
+    margin-top: 10px;
 }
 
 .section{
     flex: 1;
 }
+
 
 .test{
     margin: 5px;

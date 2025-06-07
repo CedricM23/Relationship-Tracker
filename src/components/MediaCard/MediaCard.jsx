@@ -3,6 +3,7 @@ import styles from './MediaCard.module.css'
 import { faHeart as Unliked } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as Liked } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import placeholder from '../../images/no_poster.png'
 import { useState } from "react";
 
 export default function MediaCard( { media, imagewidth, title, mediaType }) {
@@ -22,12 +23,14 @@ export default function MediaCard( { media, imagewidth, title, mediaType }) {
          {/* placeholder code to test data */}
             <section className={styles.mediacard}>
                 <Link to={`/watchlist/${media.id}/${mediaType}`} className={styles.link}>
-               <img src={`https://image.tmdb.org/t/p/w${imagewidth}/${media.poster_path}`} alt="poster" />
+                {media.poster_path ? 
+               <img src={`https://image.tmdb.org/t/p/w${imagewidth}/${media.poster_path}`} alt="poster" />:
+                  <img className={styles.placeholder} src={placeholder} alt=""/>}
                </Link>
                <section>
                   <Link to={`/show/${media.id}`} className={styles.link}>
                   <p>{Math.round(media.vote_average / 10 * 100)}%</p>
-                  <h1>{title}</h1>
+                  <h1 className={styles.cardtitle}>{title}</h1>
                   </Link>
                   <button className={styles.button} onClick={handleClick}>
                      <FontAwesomeIcon className={styles.icon} icon={heart} />

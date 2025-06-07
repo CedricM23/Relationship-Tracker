@@ -10,6 +10,7 @@ import FavoritesView from './views/FavoritesView/FavoritesView.jsx'
 import ShowsView from './views/ShowsView/ShowsView.jsx'
 import WatchlistView from './views/WatchlistView/WatchlistView.jsx'
 import MoviesView from './views/MoviesView/MoviesView.jsx'
+import PersonDetailView from './views/PersonDetailView/PersonDetailView.jsx'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path='dates/:id' element={<DateDetailView/>} />
       <Route path='/Watchlist' element={<WatchlistView/>} />
       <Route path='watchlist/:id/:type' element={<MediaDetailView/>} />
+      <Route path='watchlist/person/:id' element={<PersonDetailView/>}/>
       <Route path='/trending' element={<TrendingView/>} />
       <Route path='/favorites' element={<FavoritesView/>} />
       <Route path='/upcoming' />

@@ -10,7 +10,7 @@
     border: 1px solid grey;
 }
 
-h1{
+.cardtitle{
     text-align: center;
     font-size: medium;
     color: black ;
@@ -43,4 +43,8 @@ p{
 
 .icon{
     text-align: center;
+}
+
+.placeholder{
+    width: 190px;
 }
