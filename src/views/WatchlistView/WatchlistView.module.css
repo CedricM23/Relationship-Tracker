@@ -1,0 +1,23 @@
+.imagegrid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.searchbar{
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    justify-content: center;
+    font-size: larger;
+    
+}
+
+.searchsection{
+    display: flex;
+}
+
+.section{
+    flex: 1;
+}

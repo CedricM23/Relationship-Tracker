@@ -42,5 +42,11 @@ export default {
     },
      SearchQuery(Query){
         return watchlistAPI.get(`/search/movie?query=${Query}`)
+    },
+     tvSearchQuery(Query){
+        return watchlistAPI.get(`/search/tv?query=${Query}`)
+    },
+    personSearchQuery(Query){
+        return watchlistAPI.get(` https://api.themoviedb.org/3/search/person?query=${Query}`)
     }
 }
