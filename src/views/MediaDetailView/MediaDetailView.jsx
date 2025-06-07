@@ -30,6 +30,7 @@ export default function MediaDetailView() {
             ShowService.getviedosbyshow(id)
                 .then((response) => {
                     setMediaVideos(response.data.results)
+                    setLoading(false)
                 }).catch((error) =>
                     console.log('Videos not found')
                 )
@@ -37,32 +38,35 @@ export default function MediaDetailView() {
             ShowService.getMoviebyId(id)
                 .then((response) => {
                     setMedia(response.data)
+                    setLoading(false)
+
                 }).catch((error) =>
                     console.log('Movies not found')
                 )
         }
-        setLoading(false)
     }, [])
 
     return (
         <>
             {loading ? "loading....." :
                 <section>
-                    <div className={styles.header} >
-                        <div className={styles.imagesection}>
-                            <img className={styles.imageposter} src={`${imagepath}/${media.poster_path}`} alt="" loading="eager"/>
-                            <p className={styles.imagecaption}>Watch this {type === "TV" ? 'show' : 'movie'}</p>
-                        </div>
-                        <div className={styles.mediainfo}>
-                            <div className={styles.mediainfotitle}>
-                                <h1 className={styles.medianame}>{ media.name? media.original_name : media.original_title} </h1>
-                                <div className={styles.mediasubtitle}> <p className={styles.mediasubtitledemo}>{ type === "TV" ? media.first_air_date : media.release_date} ({media.origin_country})</p> {type === "TV" ? <></> : <section className={styles.genres}> • <div className={styles.genremap}>{media.genres && media.genres.map((media) => (<div className={styles.genretext}>{media.name}</div>))}</div> • {time} </section>}</div>
+                    <div className={styles.fullheader}>
+                        <div className={styles.header} >
+                            <div className={styles.imagesection}>
+                                <img className={styles.imageposter} src={`${imagepath}/${media.poster_path}`} alt="" loading="eager" />
+                                <p className={styles.imagecaption}>Watch this {type === "TV" ? 'show' : 'movie'}</p>
                             </div>
-                            <p className={styles.rating}>
-                                {Math.round(media.vote_average / 10 * 100)}%
-                            </p>
-                            <h2 className={styles.overviewtitle}>Overview</h2>
-                            <p className={styles.overview}>{media.overview}</p>
+                            <div className={styles.mediainfo}>
+                                <div className={styles.mediainfotitle}>
+                                    <h1 className={styles.medianame}>{media.name ? media.original_name : media.original_title} </h1>
+                                    <div className={styles.mediasubtitle}> <p className={styles.mediasubtitledemo}>{type === "TV" ? media.first_air_date : media.release_date} ({media.origin_country})</p> {type === "TV" ? <></> : <section className={styles.genres}> • <div className={styles.genremap}>{media.genres && media.genres.map((med, index) => (<div className={styles.genretext}>{med.name}{index < media.genres.length - 1 ? ', ' : ''}</div>))}</div> • {time} </section>}</div>
+                                </div>
+                                <p className={styles.rating}>
+                                    {Math.round(media.vote_average / 10 * 100)}%
+                                </p>
+                                <h2 className={styles.overviewtitle}>Overview</h2>
+                                <p className={styles.overview}>{media.overview}</p>
+                            </div>
                         </div>
                     </div>
 
