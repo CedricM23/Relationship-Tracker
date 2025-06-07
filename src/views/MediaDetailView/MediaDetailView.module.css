@@ -77,6 +77,22 @@
 .rating {
     font-size: xx-large;
     text-align: left;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ratingtext{
+    flex-direction: column;
+    font-size:medium;
+}
+
+.ratingscore{
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 50px;
+    align-items: center;
+    font-size: large;
 }
 
 .headerbutton{
@@ -86,7 +102,6 @@
     border: 0;
     margin-right: 10px;
     font-size: large;
-    margin-top: -40px;
 }
 
 .overviewtitle{

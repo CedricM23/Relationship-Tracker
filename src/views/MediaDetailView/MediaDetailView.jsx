@@ -65,18 +65,21 @@ export default function MediaDetailView() {
                                     <h1 className={styles.medianame}>{media.name ? media.original_name : media.original_title} </h1>
                                     <div className={styles.mediasubtitle}> <p className={styles.mediasubtitledemo}>{type === "TV" ? media.first_air_date : media.release_date} ({media.origin_country})</p> {type === "TV" ? <></> : <section className={styles.genres}> • <div className={styles.genremap}>{media.genres && media.genres.map((med, index) => (<div className={styles.genretext}>{med.name}{index < media.genres.length - 1 ? ', ' : ''}</div>))}</div> • {time} </section>}</div>
                                 </div>
-                                <p className={styles.rating}>
-                                    {Math.round(media.vote_average / 10 * 100)}%
-                                </p>
+                                <div className={styles.rating}>
+                                    <div className={styles.ratingscore}>
+                                        {Math.round(media.vote_average / 10 * 100)}%
+                                    </div>
+                                    <div className={styles.ratingtext}>
+                                        <div>User</div>
+                                        <div>Score</div>
+                                    </div>
+                                </div>
                                 <div className={styles.headerbuttons}>
                                     <button className={styles.headerbutton}>
                                         <FontAwesomeIcon icon={faList} />
                                     </button>
                                     <button className={styles.headerbutton}>
                                         <FontAwesomeIcon icon={faHeart} />
-                                    </button>
-                                    <button className={styles.headerbutton}>
-                                        <FontAwesomeIcon icon={faBookmark} />
                                     </button>
                                 </div>
                                 <h2 className={styles.overviewtitle}>Overview</h2>
