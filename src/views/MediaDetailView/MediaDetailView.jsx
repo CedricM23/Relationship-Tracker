@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import ShowService from "../../services/ShowService";
 import styles from './MediaDetailView.module.css'
+import { faList } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 
 export default function MediaDetailView() {
     const { id, type } = useParams();
@@ -53,7 +57,7 @@ export default function MediaDetailView() {
                     <div className={styles.fullheader}>
                         <div className={styles.header} >
                             <div className={styles.imagesection}>
-                                <img className={styles.imageposter} src={`${imagepath}/${media.poster_path}`} alt="" loading="eager" />
+                                <img className={styles.imageposter} src={`${imagepath}/${media.poster_path}`} alt="" loading="lazy" />
                                 <p className={styles.imagecaption}>Watch this {type === "TV" ? 'show' : 'movie'}</p>
                             </div>
                             <div className={styles.mediainfo}>
@@ -64,6 +68,17 @@ export default function MediaDetailView() {
                                 <p className={styles.rating}>
                                     {Math.round(media.vote_average / 10 * 100)}%
                                 </p>
+                                <div className={styles.headerbuttons}>
+                                    <button className={styles.headerbutton}>
+                                        <FontAwesomeIcon icon={faList} />
+                                    </button>
+                                    <button className={styles.headerbutton}>
+                                        <FontAwesomeIcon icon={faHeart} />
+                                    </button>
+                                    <button className={styles.headerbutton}>
+                                        <FontAwesomeIcon icon={faBookmark} />
+                                    </button>
+                                </div>
                                 <h2 className={styles.overviewtitle}>Overview</h2>
                                 <p className={styles.overview}>{media.overview}</p>
                             </div>
