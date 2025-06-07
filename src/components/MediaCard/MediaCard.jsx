@@ -8,9 +8,6 @@ import { useState } from "react";
 export default function MediaCard( { media, imagewidth, title, mediaType }) {
    const [heart, setHeart] = useState(Unliked)
 
-   let click = false;
-   console.log(click)
-
    function handleClick() {
       if (heart === Unliked) {
          setHeart(Liked);

@@ -5,7 +5,7 @@
 }
 
 .searchbar{
-    width: 300px;
+    width: 400px;
     height: 30px;
     border-radius: 10px;
     border: 1px solid grey;
@@ -20,4 +20,8 @@
 
 .section{
     flex: 1;
+}
+
+.test{
+    margin: 5px;
 }

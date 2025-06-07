@@ -1,0 +1,24 @@
+.personcard{
+     width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.image{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.placeholderimage{
+    margin: 10px;
+    padding: 5px;
+    width: 250px;
+    height: auto;
+}
