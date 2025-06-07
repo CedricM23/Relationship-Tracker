@@ -80,6 +80,9 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    border: 2px solid grey;
+    width: 100px;
+    border-radius: 15px;
 }
 
 .ratingtext{
@@ -102,6 +105,7 @@
     border: 0;
     margin-right: 10px;
     font-size: large;
+    text-align: center;
 }
 
 .overviewtitle{
