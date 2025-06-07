@@ -10,31 +10,35 @@ export default function TrendingView() {
     const [loading, setLoading] = useState(true)
     const [showFilter, setShowFilter] = useState("today");
 
-    function handleShowFilterChange(e){
-          setShowFilter(e.target.value);
+    function handleShowFilterChange(e) {
+        setShowFilter(e.target.value);
     }
 
     useEffect(() => {
-        if(showFilter === "today"){
-        ShowService.trendingToday()
-            .then((response) => {
-                setMedia(response.data.results)
-            })
-        } else if (showFilter === "popular"){
+        if (showFilter === "today") {
+            ShowService.trendingToday()
+                .then((response) => {
+                    setMedia(response.data.results)
+                    setLoading(false)
+                })
+        } else if (showFilter === "popular") {
             ShowService.getPopularShows()
-            .then((response) => {
-                setMedia(response.data.results)
-            })
+                .then((response) => {
+                    setMedia(response.data.results)
+                    setLoading(false)
+                })
         }
         ShowService.getPopularMovies()
             .then((response) => {
                 setMovies(response.data.results)
+                setLoading(false)
             })
     }, [showFilter])
 
     return (
         <>
             <WatchlistNav />
+
             <div className={styles.container}>
                 <section className={styles.header}>
                     <div className={styles.leftsection}></div>
@@ -47,13 +51,15 @@ export default function TrendingView() {
                         </select>
                     </div>
                 </section>
-                <div className={styles.mediagrid}>
-                    {media.map(
-                        (media) => (
-                            <MediaCard key={media.id} media={media} imagewidth={185} title={media.name} mediaType='TV'/>
-                        )
-                    )}
-                </div>
+                {loading ? 'loading...' :
+                    <div className={styles.mediagrid}>
+                        {media.map(
+                            (media) => (
+                                <MediaCard key={media.id} media={media} imagewidth={185} title={media.name} mediaType='TV' />
+                            )
+                        )}
+                    </div>
+                }
                 <div id="Trending Movies">
                     <section className={styles.header}>
                         <div className={styles.leftsection}></div>
@@ -61,13 +67,15 @@ export default function TrendingView() {
                         <div className={styles.filtersection}>
                         </div>
                     </section>
-                    <div className={styles.mediagrid}>
-                        {movies.map(
-                            (movie) => (
-                                <MediaCard key={media.id} media={movie} imagewidth={185} title={movie.original_title} mediaType = 'MOVIE' />
-                            )
-                        )}
-                    </div>
+                    {loading ? 'loading' :
+                        <div className={styles.mediagrid}>
+                            {movies.map(
+                                (movie) => (
+                                    <MediaCard key={media.id} media={movie} imagewidth={185} title={movie.original_title} mediaType='MOVIE' />
+                                )
+                            )}
+                        </div>
+                    }
                 </div>
             </div>
         </>
