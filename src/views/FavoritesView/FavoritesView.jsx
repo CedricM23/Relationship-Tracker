@@ -47,7 +47,7 @@ export default function FavoritesView() {
     function handleDelete(event){
         ShowService.deleteListById(event.currentTarget.dataset.id)
         .catch((error) =>
-        console.log('could not delete your shit'))
+        console.log('could not delete your list'))
         getLists();
     }
 
