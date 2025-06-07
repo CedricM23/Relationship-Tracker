@@ -3,7 +3,7 @@ import WatchlistNav from "../../components/WatchlistNavBar/WatchlistNav";
 import ShowService from "../../services/ShowService";
 import MediaCard from "../../components/MediaCard/MediaCard";
 import styles from './WatchlistView.module.css'
-import PersonCard from "../../components/PersonCard/PersonCard.JSX";
+import PersonCard from "../../components/PersonCard/PersonCard";
 
 export default function WatchlistView() {
     const [search, setSearch] = useState("plce");
