@@ -33,7 +33,14 @@ export default {
     },
     getlists(){
         return watchlistAPI.get(`/account/22039344/lists`);
-    }, deleteListById(list_id){
+    }, 
+    deleteListById(list_id){
         return watchlistAPI.delete(`/list/${list_id}`)
+    }, 
+    getUpcomingMovie(){
+        return watchlistAPI.get('/movie/upcoming')
+    },
+     SearchQuery(Query){
+        return watchlistAPI.get(`/search/movie?query=${Query}`)
     }
 }

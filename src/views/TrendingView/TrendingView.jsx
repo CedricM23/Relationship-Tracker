@@ -20,19 +20,25 @@ export default function TrendingView() {
                 .then((response) => {
                     setMedia(response.data.results)
                     setLoading(false)
-                })
+                }).catch((error) =>
+                    console.log("Could not get today's shows")
+                )
         } else if (showFilter === "popular") {
             ShowService.getPopularShows()
                 .then((response) => {
                     setMedia(response.data.results)
                     setLoading(false)
-                })
+                }).catch((error) =>
+                    console.log("Could not get popular shows")
+                )
         }
         ShowService.getPopularMovies()
             .then((response) => {
                 setMovies(response.data.results)
                 setLoading(false)
-            })
+            }).catch((error) =>
+                    console.log("Could not get popular movies")
+                )
     }, [showFilter])
 
     return (

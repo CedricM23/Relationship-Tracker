@@ -3,7 +3,7 @@ import styles from './ListCreateForm.module.css'
 import ShowService from '../../services/ShowService'
 
 export default function ListCreateForm() {
-    const [newList, setNewList] = useState({})
+    const [newList, setNewList] = useState([])
 
     function updatelist(event){
         event.preventDefault();
