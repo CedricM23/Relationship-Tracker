@@ -108,6 +108,10 @@
     text-align: center;
 }
 
+.headerbutton:hover{
+    background-color: rgb(165, 165, 165);
+}
+
 .overviewtitle{
     text-align: left;
 }

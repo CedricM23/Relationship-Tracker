@@ -6,12 +6,17 @@ import { faList } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
+import Popup from "reactjs-popup";
+import { Link } from "react-router-dom";
+import './popup.css'
 
 export default function MediaDetailView() {
     const { id, type } = useParams();
     const [media, setMedia] = useState([]);
     const [mediavideos, setMediaVideos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [lists, setLists] = useState([])
+    const [listfilter, setListFilter] = useState("")
     let hours = Math.floor(media.runtime / 60)
     let time = `${hours}h ${hours % 60}m`
 
@@ -48,7 +53,18 @@ export default function MediaDetailView() {
                     console.log('Movies not found')
                 )
         }
+        ShowService.getlists()
+            .then((response) => {
+                setLists(response.data.results)
+            }).catch((error) => {
+                alert('Could not get your lists! please try again!')
+            })
+
     }, [])
+
+    function handleChange(e){
+        setListFilter(e.target.value)
+    }
 
     return (
         <>
@@ -75,9 +91,17 @@ export default function MediaDetailView() {
                                     </div>
                                 </div>
                                 <div className={styles.headerbuttons}>
-                                    <button className={styles.headerbutton}>
-                                        <FontAwesomeIcon icon={faList} />
-                                    </button>
+                                    <Popup trigger={
+                                        <button className={styles.headerbutton}>
+                                            <FontAwesomeIcon icon={faList} />
+                                        </button>}>
+                                        <div className="popuptext"><Link className="dropdownlink">Create a new list</Link></div>
+                                        <select className="popupselect" onChange={handleChange}>
+                                        {lists.map(
+                                            (list, index) => (<option key={index}>{list.name}</option>)
+                                        )}
+                                        </select>
+                                    </Popup>
                                     <button className={styles.headerbutton}>
                                         <FontAwesomeIcon icon={faHeart} />
                                     </button>
@@ -87,6 +111,7 @@ export default function MediaDetailView() {
                             </div>
                         </div>
                     </div>
+
 
                     {mediavideos.length > 0 ?
                         <div>
