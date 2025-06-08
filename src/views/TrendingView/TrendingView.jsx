@@ -61,7 +61,7 @@ export default function TrendingView() {
                     <div className={styles.mediagrid}>
                         {media.map(
                             (media) => (
-                                <MediaCard key={media.id} media={media} imagewidth={185} title={media.name} mediaType='TV' />
+                                <MediaCard key={media.id} media={media} imagewidth={185} title={media.name} mediaType='tv' />
                             )
                         )}
                     </div>
@@ -77,7 +77,7 @@ export default function TrendingView() {
                         <div className={styles.mediagrid}>
                             {movies.map(
                                 (movie) => (
-                                    <MediaCard key={media.id} media={movie} imagewidth={185} title={movie.original_title} mediaType='MOVIE' />
+                                    <MediaCard key={media.id} media={movie} imagewidth={185} title={movie.original_title} mediaType='movie' />
                                 )
                             )}
                         </div>

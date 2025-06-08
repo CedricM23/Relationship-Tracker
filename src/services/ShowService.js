@@ -7,6 +7,13 @@ const watchlistAPI = axios.create({
     }
 })
 
+const listAPI = axios.create({
+    baseURL: 'https://api.themoviedb.org/4',
+    headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`
+    }
+})
+
 export default {
     trendingToday(){
         return watchlistAPI.get('tv/airing_today');
@@ -29,11 +36,14 @@ export default {
         return watchlistAPI.get(`/movie/${movie_id}`)
     },
     createlist(body){
-        return watchlistAPI.post(`/list`, body);
+        return listAPI.post(`/list`, body);
     },
     getlists(){
-        return watchlistAPI.get(`/account/22039344/lists`);
+        return watchlistAPI.get(`/account/683682df94584af5ae055fed/lists`);
     }, 
+    getListByID(list_id){
+        return watchlistAPI.get(`list/${list_id}`)
+    },
     deleteListById(list_id){
         return watchlistAPI.delete(`/list/${list_id}`)
     }, 
@@ -48,5 +58,7 @@ export default {
     },
     personSearchQuery(Query){
         return watchlistAPI.get(`/search/person?query=${Query}`)
+    }, addItemTolist(id, body){
+        return listAPI.post(`list/${id}/items`, body)
     }
 }

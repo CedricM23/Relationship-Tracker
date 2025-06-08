@@ -36,7 +36,7 @@ export default function ListCreateForm({onCreate}) {
                 </div>
                 <div className={styles.formitem}>
                     <label htmlFor="language">Language: </label>
-                    <select id="language" name="language" onClick={  (e) =>  setNewList({...setNewList,language: e.target.value === 'en'})}>
+                    <select id="language" name="language" onClick={  (e) =>  setNewList({...setNewList,iso_639_1: e.target.value === 'en'})}>
                         <option value="en">English</option>
                     </select>
                 </div>

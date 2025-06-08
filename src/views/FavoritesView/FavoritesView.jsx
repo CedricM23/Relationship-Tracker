@@ -73,7 +73,7 @@ export default function FavoritesView() {
                                 </button>
                                 </div>
                                 <div className={styles.listgrid}>
-
+                                
                                 </div>
                             </div>
                         )

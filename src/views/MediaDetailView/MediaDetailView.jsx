@@ -16,9 +16,15 @@ export default function MediaDetailView() {
     const [mediavideos, setMediaVideos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [lists, setLists] = useState([])
-    const [listfilter, setListFilter] = useState("")
     let hours = Math.floor(media.runtime / 60)
     let time = `${hours}h ${hours % 60}m`
+    const payload = { items: [
+        {
+        media_type: type,
+        media_id:id
+        }
+    ]}
+    let selectedListId;
 
     const imagepath = 'https://image.tmdb.org/t/p/w500'
 
@@ -63,9 +69,20 @@ export default function MediaDetailView() {
     }, [])
 
     function handleChange(e){
-        setListFilter(e.target.value)
+        const selectedListId = e.target.value;
+        ShowService.addItemTolist(selectedListId, payload).then(
+            (response) => {
+            if (response.status === 201){
+                    alert('list created')
+                }
+            }
+        ).catch((error) => {
+            if (error.status === 403){
+                    alert(`${media.name} already exists in your list!`)
+                }
+            }
+        )
     }
-
     return (
         <>
             {loading ? "loading....." :
@@ -96,9 +113,11 @@ export default function MediaDetailView() {
                                             <FontAwesomeIcon icon={faList} />
                                         </button>}>
                                         <div className="popuptext"><Link className="dropdownlink">Create a new list</Link></div>
+                                        
                                         <select className="popupselect" onChange={handleChange}>
+                                            <option>Choose a list</option>
                                         {lists.map(
-                                            (list, index) => (<option key={index}>{list.name}</option>)
+                                            (list, index) => (<option  key={index} value={list.id}>{list.name}</option>)
                                         )}
                                         </select>
                                     </Popup>
@@ -112,7 +131,7 @@ export default function MediaDetailView() {
                         </div>
                     </div>
 
-
+                                        {selectedListId}
                     {mediavideos.length > 0 ?
                         <div>
                             <h1 className={styles.videosheader}>Clips : {mediavideos.length} </h1>
