@@ -17,8 +17,6 @@ export default function ListCreateForm({onCreate}) {
         ).catch((error) => {
             alert('List was not created')
         })
-        //recall the list
-        
     }
 
     return (
@@ -36,8 +34,23 @@ export default function ListCreateForm({onCreate}) {
                 </div>
                 <div className={styles.formitem}>
                     <label htmlFor="language">Language: </label>
-                    <select id="language" name="language" onClick={  (e) =>  setNewList({...setNewList,iso_639_1: e.target.value === 'en'})}>
+                    <select id="language" name="language" onChange={  (e) =>  setNewList({...newList, iso_639_1:e.target.value})}>
+                        <option value="">Select a language</option>
                         <option value="en">English</option>
+                    </select>
+                </div>
+                <div className={styles.formitem}>
+                    <label htmlFor="region">Region: </label>
+                    <select id="language" name="language" onChange={  (e) =>  setNewList({...newList,iso_3166_1: e.target.value})}>
+                        <option value="">Select a region</option>
+                        <option value="us">United States</option>
+                    </select>
+                </div>
+                <div className={styles.formitem}>
+                    <label htmlFor="region">Public list? </label>
+                    <select id="language" name="language" onChange={  (e) =>  setNewList({...newList,public: e.target.value === 'true'})}>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
                     </select>
                 </div>
                 <div className={styles.formitem}>

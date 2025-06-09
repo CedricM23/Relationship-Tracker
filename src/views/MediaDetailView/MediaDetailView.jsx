@@ -33,7 +33,7 @@ export default function MediaDetailView() {
     useEffect(() => {
         // if its movie then run one block, else run the other one
 
-        if (type === 'TV') {
+        if (type === 'tv') {
             // GET SHOW DATA
             ShowService.getShowbyId(id)
                 .then((response) => {
@@ -91,12 +91,12 @@ export default function MediaDetailView() {
                         <div className={styles.header} >
                             <div className={styles.imagesection}>
                                 <img className={styles.imageposter} src={`${imagepath}/${media.poster_path}`} alt="" loading="lazy" />
-                                <p className={styles.imagecaption}>Watch this {type === "TV" ? 'show' : 'movie'}</p>
+                                <p className={styles.imagecaption}>Watch this {type === "tv" ? 'show' : 'movie'}</p>
                             </div>
                             <div className={styles.mediainfo}>
                                 <div className={styles.mediainfotitle}>
                                     <h1 className={styles.medianame}>{media.name ? media.original_name : media.original_title} </h1>
-                                    <div className={styles.mediasubtitle}> <p className={styles.mediasubtitledemo}>{type === "TV" ? media.first_air_date : media.release_date} ({media.origin_country})</p> {type === "TV" ? <></> : <section className={styles.genres}> • <div className={styles.genremap}>{media.genres && media.genres.map((med, index) => (<div className={styles.genretext}>{med.name}{index < media.genres.length - 1 ? ', ' : ''}</div>))}</div> • {time} </section>}</div>
+                                    <div className={styles.mediasubtitle}> <p className={styles.mediasubtitledemo}>{type === "tv" ? media.first_air_date : media.release_date} ({media.origin_country})</p> {type === "TV" ? <></> : <section className={styles.genres}> • <div className={styles.genremap}>{media.genres && media.genres.map((med, index) => (<div className={styles.genretext}>{med.name}{index < media.genres.length - 1 ? ', ' : ''}</div>))}</div> • {time} </section>}</div>
                                 </div>
                                 <div className={styles.rating}>
                                     <div className={styles.ratingscore}>

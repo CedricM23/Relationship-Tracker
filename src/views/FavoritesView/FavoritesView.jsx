@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function FavoritesView() {
     const [lists, setLists] = useState([])
-
+    const [listdetails, setListDetails] = useState([])
+    let listid;
 
     useEffect(() => {
         ShowService.getlists()
@@ -26,7 +27,16 @@ export default function FavoritesView() {
         }).catch(() => {
             alert('Could not get your lists! please try again!');
         });
-}
+}   
+
+    function getListDetails(id){
+        ShowService.getListDetailsById(id)
+        .then((response) => {
+        setListDetails(response.data)
+        }).catch(() => {
+            alert('Could not get your list item! please try again!');
+        });
+    }
 
     function handleClick(){
         let element = document.getElementById("form");
@@ -72,8 +82,14 @@ export default function FavoritesView() {
                                     <FontAwesomeIcon icon={faTrash} className={styles.headericon}/>
                                 </button>
                                 </div>
-                                <div className={styles.listgrid}>
-                                
+                                <div className={styles.listgrid} >
+                                    {getListDetails(list.id)}
+                                    {JSON.stringify(listdetails)}
+                                    {/* {listdetails.map(
+                                        (item, index) => (
+                                            <div key={index}>df</div>
+                                        )
+                                    )} */}
                                 </div>
                             </div>
                         )

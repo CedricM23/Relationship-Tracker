@@ -10,6 +10,13 @@ const watchlistAPI = axios.create({
 const listAPI = axios.create({
     baseURL: 'https://api.themoviedb.org/4',
     headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY4}`
+    }
+})
+
+const listReadApi = axios.create({
+    baseURL: 'https://api.themoviedb.org/4',
+    headers: {
         Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`
     }
 })
@@ -39,10 +46,13 @@ export default {
         return listAPI.post(`/list`, body);
     },
     getlists(){
-        return watchlistAPI.get(`/account/683682df94584af5ae055fed/lists`);
+        return listAPI.get(`/account/683682df94584af5ae055fed/lists`);
     }, 
     getListByID(list_id){
         return watchlistAPI.get(`list/${list_id}`)
+    },
+    getListDetailsById(id){
+        return listReadApi.get(`list/${id}?language=en-US&page=1`)
     },
     deleteListById(list_id){
         return watchlistAPI.delete(`/list/${list_id}`)

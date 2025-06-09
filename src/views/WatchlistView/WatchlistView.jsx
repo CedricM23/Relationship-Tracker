@@ -63,12 +63,12 @@ export default function WatchlistView() {
                     <div className={styles.imagegrid}>
                     {results.map(
                         (result, index) => (
-                            <MediaCard key={result.id} media={result} imagewidth={185} title={result.name? result.name: result.original_title} />
+                            <MediaCard key={result.id} media={result} imagewidth={185} title={result.name? result.name: result.original_title} mediaType="movie"/>
                         )
                     )}
                     {shows.map(
                         (result, index) => (
-                             <MediaCard key={result.id} media={result} imagewidth={185} title={result.name? result.name: result.original_title} />
+                             <MediaCard key={result.id} media={result} imagewidth={185} title={result.name? result.name: result.original_title}  mediaType="tv"/>
                         )
                     )}
 
