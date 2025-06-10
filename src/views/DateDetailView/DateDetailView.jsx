@@ -24,6 +24,7 @@ export default function DateDetailView() {
                 //========================== TRUE - SCRAPBOOK =======================
                 <>
                     <div id='Scrapbook'>
+                        <p style={{color : 'red', fontSize: '20px'}}>LAYOUT IS BEING WORKED ON</p>
                         <div className={styles.titleslide}>
                             <div className={styles.container}>
                                 <span className={styles.slidertext}>Fancy</span>
