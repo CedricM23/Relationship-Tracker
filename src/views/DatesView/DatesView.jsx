@@ -12,6 +12,7 @@ export default function Datesview(){
 
     return (
         <>
+        <p style={{color : 'red', fontSize: '20px'}}>PLACEHOLDERS</p>
         <h1 className={styles.title}>Dates</h1>
         <p className={styles.subtitle}>Number of dates: {dates.length}</p>
         <div className={styles.dategrid}>

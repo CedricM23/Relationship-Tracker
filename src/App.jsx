@@ -13,6 +13,7 @@ import MoviesView from './views/MoviesView/MoviesView.jsx'
 import PersonDetailView from './views/PersonDetailView/PersonDetailView.jsx'
 import HomeView from './views/HomeView/HomeView.jsx'
 import UpcomingView from './views/UpcomingView/UpcomingView.jsx'
+import AboutusView from './views/AboutusView/AboutusView.jsx'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       <Route path='/upcoming' element={<UpcomingView/>}/>
       <Route path='/shows' element={<ShowsView/>} />
       <Route path='/movies' element={<MoviesView/>} />
+      <Route path='/about-us' element={<AboutusView/>} />
       {/* WATCHLIST */}
       </Routes>
       </BrowserRouter>

@@ -65,6 +65,7 @@ export default function FavoritesView() {
     return (
         <>
             <WatchlistNavBar />
+            <p style={{color : 'red', fontSize: '20px'}}>CANNOT CREATE MULTIPLE LISTS</p>
             <button onClick={handleClick}>New List</button>
             <button onClick={handleClose}>Close List</button>
             <div className={styles.form} id="form">
