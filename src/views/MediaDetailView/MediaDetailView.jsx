@@ -21,7 +21,7 @@ export default function MediaDetailView() {
     const payload = { items: [
         {
         media_type: type,
-        media_id:id
+        media_id: id
         }
     ]}
     let selectedListId;
@@ -72,9 +72,7 @@ export default function MediaDetailView() {
         const selectedListId = e.target.value;
         ShowService.addItemTolist(selectedListId, payload).then(
             (response) => {
-            if (response.status === 201){
-                    alert('list created')
-                }
+                alert(`${media.name} was added to your list`)
             }
         ).catch((error) => {
             if (error.status === 403){

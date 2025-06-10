@@ -11,6 +11,8 @@ import ShowsView from './views/ShowsView/ShowsView.jsx'
 import WatchlistView from './views/WatchlistView/WatchlistView.jsx'
 import MoviesView from './views/MoviesView/MoviesView.jsx'
 import PersonDetailView from './views/PersonDetailView/PersonDetailView.jsx'
+import HomeView from './views/HomeView/HomeView.jsx'
+import UpcomingView from './views/UpcomingView/UpcomingView.jsx'
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
       <BrowserRouter>
       <NavBar />
       <Routes>
+      <Route path ='/' element={<HomeView/>} />
       <Route path='/dates' element={<Datesview/>} />
       <Route path='dates/:id' element={<DateDetailView/>} />
       <Route path='/Watchlist' element={<WatchlistView/>} />
@@ -26,7 +29,7 @@ function App() {
       <Route path='watchlist/person/:id' element={<PersonDetailView/>}/>
       <Route path='/trending' element={<TrendingView/>} />
       <Route path='/favorites' element={<FavoritesView/>} />
-      <Route path='/upcoming' />
+      <Route path='/upcoming' element={<UpcomingView/>}/>
       <Route path='/shows' element={<ShowsView/>} />
       <Route path='/movies' element={<MoviesView/>} />
       {/* WATCHLIST */}

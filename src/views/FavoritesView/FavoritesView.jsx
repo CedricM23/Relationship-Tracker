@@ -18,7 +18,7 @@ export default function FavoritesView() {
             }).catch((error) => {
                 alert('Could not get your lists! please try again!')
             })
-    }, [lists])
+    }, [])
 
     function getLists() {
     ShowService.getlists()
@@ -32,7 +32,7 @@ export default function FavoritesView() {
     function getListDetails(id){
         ShowService.getListDetailsById(id)
         .then((response) => {
-        setListDetails(response.data)
+        setListDetails(response.data.results)
         }).catch(() => {
             alert('Could not get your list item! please try again!');
         });
@@ -84,12 +84,11 @@ export default function FavoritesView() {
                                 </div>
                                 <div className={styles.listgrid} >
                                     {getListDetails(list.id)}
-                                    {JSON.stringify(listdetails)}
-                                    {/* {listdetails.map(
+                                    {listdetails.map(
                                         (item, index) => (
-                                            <div key={index}>df</div>
+                                            <div key={index}>{item.name}</div>
                                         )
-                                    )} */}
+                                    )}
                                 </div>
                             </div>
                         )

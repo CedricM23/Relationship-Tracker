@@ -55,6 +55,7 @@ export default function WatchlistView() {
             <WatchlistNav />
             {loading ? "loading" :
                 <div>
+                    <p style={{color : 'red', fontSize: '20px'}}>MOVIES CAN NOT YET BE ADDED TO LISTS</p>
                     <div className={styles.searchsection}>
                     <div className={styles.section}></div>
                     <input type="text" className={styles.searchbar} onChange={handleSubmit} placeholder="Search for Tv Shows or Movies or People" />
