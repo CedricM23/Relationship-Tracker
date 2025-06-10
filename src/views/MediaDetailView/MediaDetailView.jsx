@@ -85,7 +85,7 @@ export default function MediaDetailView() {
         <>
             {loading ? "loading....." :
                 <section>
-                    <p style={{color : 'red', fontSize: '20px'}}>DOES NOT CHECK IF YOU ALREADY ADDED MEDIA TO A LIST. LAYOUT IS BEING WORKED ON.</p>
+                    <p style={{color : 'red', fontSize: '20px'}}>DOES NOT CHECK IF YOU ALREADY ADDED MEDIA TO A LIST. MOVIE CAN NOT BE ADDED YET</p>
                     <div className={styles.fullheader}>
                         <div className={styles.header} >
                             <div className={styles.imagesection}>
