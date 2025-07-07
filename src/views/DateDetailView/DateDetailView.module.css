@@ -1,51 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-.title{
-    text-align: center;
-    font-size:  xx-large;
-    margin-bottom: -10px;
-    font-family: "Libre Baskerville", serif;
+.title {
+  text-align: center;
+  font-size: xx-large;
+  margin-bottom: -10px;
+  font-family: "Libre Baskerville", serif;
 }
 
-.links{
-    color: black;
-    text-decoration: none;
-    font-size: large;
+.links {
+  color: black;
+  text-decoration: none;
+  font-size: large;
 }
 
-.links:hover{
-    text-decoration: underline;
+.links:hover {
+  text-decoration: underline;
 }
 
-.body{
-    display: flex;
-    flex-direction: column;
+.body {
+  display: flex;
+  flex-direction: column;
 }
 
 
 
-.trying{
+.trying {
   display: flex;
 }
 
 
 
-.song{
-    width: 100%; 
-    height: 100%; 
-    border: 0;
+.song {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-.album{
-    display: flex;
-    height: 200px;
-    align-items: flex-start;
+.cassette{
+  display: flex;
+  justify-content: center;
 }
 
-.subtitle{
-  color: #4b5563; /* Tailwind's text-gray-600 */
-  margin-bottom: 1rem; /* Tailwind's mb-4 */
-  font-size: 1.125rem; /* Tailwind's text-lg */
+.scrapalbum {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: fit-content;
+  align-items: center;
+  margin-top: 20px;
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: rgb(248, 248, 250);
+}
+
+.scrapsongtext{
+  margin-bottom: 20px;
+}
+.scrapsong {
+  height: 100%;
+  border: 0;
+}
+
+.album {
+  display: flex;
+  height: 200px;
+  align-items: flex-start;
+}
+
+.scrapbook {
+  border: 12px dashed #f9b5d1;
+  border-radius: 18px;
+  padding: 3rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  max-width: 1500px;
+  margin: 2rem auto;
+}
+
+
+
+.subtitle {
+  color: #4b5563;
+  /* Tailwind's text-gray-600 */
+  margin-bottom: 1rem;
+  /* Tailwind's mb-4 */
+  font-size: 1.125rem;
+  /* Tailwind's text-lg */
   font-style: italic;
   text-align: center;
 }
@@ -58,13 +98,13 @@
 }
 
 iframe {
-    width:600px;
-    height:450px ;
-    border:0px;
-    border-radius: 10px;
+  width: 600px;
+  height: 450px;
+  border: 0px;
+  border-radius: 10px;
 }
 
-.leftsection{
+.leftsection {
   text-align: center;
   margin-left: 10px;
   border-radius: 16px;
@@ -73,102 +113,110 @@ iframe {
   height: 100%;
 }
 
-.songtitle{
-  color: #4b5563; /* Tailwind's text-gray-600 */
-  margin-bottom: 1rem; /* Tailwind's mb-4 */
-  font-size: 1.125rem; /* Tailwind's text-lg */
+.songtitle {
+  color: #4b5563;
+  /* Tailwind's text-gray-600 */
+  margin-bottom: 1rem;
+  /* Tailwind's mb-4 */
+  font-size: 1.125rem;
+  /* Tailwind's text-lg */
   font-style: italic;
   text-align: center;
 }
 
-.articlebody{
+.articlebody {
   margin-left: 80px;
   margin-right: 80px;
   font-size: x-large;
   line-height: 1.2;
-  font-family:'Libre Baskerville', Arial, Helvetica, sans-serif;
+  font-family: 'Libre Baskerville', Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.articlebody{
+.articlebody {
   text-align: left;
 }
 
-.backbutton{
+.backbutton {
   text-align: right;
   bottom: 0;
 }
 
-.backbuttonicon{
+.backbuttonicon {
   font-size: small;
   margin-right: 5px;
 }
 
 
 /* FOR THE SLIDER ONLY*/
- .titleslide{
+.titleslide {
   display: flex;
-  align-items:flex-end;
+  align-items: flex-end;
   justify-content: flex-end;
- }
-
- .container{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex: 1;
 }
 
-.slidertext{
-    margin-left: 10px;
-    margin-right: 10px;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
 }
 
-.righttitle{
-    flex:1;
+.slidertext {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.mobilecontainer{
+.righttitle {
+  flex: 1;
+}
+
+.mobilecontainer {
   display: none;
 }
 
 
 
 @media only screen and (max-width: 1000px) {
-  .trying{
-  flex-direction: column;
-}
-iframe {
-    width:100%;
-}
-.articlebody{
-  margin-left: 15px;
-  margin-right: 15px;
-}
-.leftsection{
-  margin: 0%;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.container{
-  display: none;
-}
+  .trying {
+    flex-direction: column;
+  }
 
-.mobilecontainer{
-  display: flex;
-  margin-top: 10px;
-  align-items: center;
-}
+  iframe {
+    width: 100%;
+  }
 
-.titleslide{
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  .articlebody {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 
-}
-.righttitle{
-  display: none;
-}
+  .leftsection {
+    margin: 0%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .container {
+    display: none;
+  }
+
+  .mobilecontainer {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+  }
+
+  .titleslide {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .righttitle {
+    display: none;
+  }
 }

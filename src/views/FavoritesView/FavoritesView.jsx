@@ -10,7 +10,7 @@ export default function FavoritesView() {
     const [lists, setLists] = useState([])
     const [listdetails, setListDetails] = useState([])
     let listid;
-
+    
     useEffect(() => {
         ShowService.getlists()
             .then((response) => {
@@ -24,7 +24,7 @@ export default function FavoritesView() {
     ShowService.getlists()
         .then((response) => {
             setLists(response.data.results);
-        }).catch(() => {
+        }).catch((error) => {
             alert('Could not get your lists! please try again!');
         });
 }   

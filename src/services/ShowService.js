@@ -22,53 +22,39 @@ const listReadApi = axios.create({
 })
 
 export default {
-    trendingToday(){
+    trendingToday() {
         return watchlistAPI.get('tv/airing_today');
-    },getPopularShows(){
+    }, getPopularShows() {
         return watchlistAPI.get('tv/popular');
-    },
-    getShowbyId(series_id){
+    }, getShowbyId(series_id) {
         return watchlistAPI.get(`tv/${series_id}`)
-    },
-    getviedosbyshow(series_id){
+    }, getviedosbyshow(series_id) {
         return watchlistAPI.get(`tv/${series_id}/videos`)
-    },
-    getTopRatedMovies(){
+    }, getTopRatedMovies() {
         return watchlistAPI.get('movie/top_rated')
-    },
-    getPopularMovies(){
+    }, getPopularMovies() {
         return watchlistAPI.get('movie/popular')
-    },
-    getMoviebyId(movie_id){
+    }, getMoviebyId(movie_id) {
         return watchlistAPI.get(`/movie/${movie_id}`)
-    },
-    createlist(body){
+    }, createlist(body) {
         return listAPI.post(`/list`, body);
-    },
-    getlists(){
+    }, getlists() {
         return listAPI.get(`/account/683682df94584af5ae055fed/lists`);
-    }, 
-    getListByID(list_id){
+    }, getListByID(list_id) {
         return watchlistAPI.get(`list/${list_id}`)
-    },
-    getListDetailsById(id){
+    }, getListDetailsById(id) {
         return listReadApi.get(`list/${id}?language=en-US&page=1`)
-    },
-    deleteListById(list_id){
+    }, deleteListById(list_id) {
         return watchlistAPI.delete(`/list/${list_id}`)
-    }, 
-    getUpcomingMovie(){
+    }, getUpcomingMovie() {
         return watchlistAPI.get('/movie/upcoming')
-    },
-     SearchQuery(Query){
+    }, SearchQuery(Query) {
         return watchlistAPI.get(`/search/movie?query=${Query}`)
-    },
-     tvSearchQuery(Query){
+    }, tvSearchQuery(Query) {
         return watchlistAPI.get(`/search/tv?query=${Query}`)
-    },
-    personSearchQuery(Query){
+    }, personSearchQuery(Query) {
         return watchlistAPI.get(`/search/person?query=${Query}`)
-    }, addItemTolist(id, body){
+    }, addItemTolist(id, body) {
         return listAPI.post(`list/${id}/items`, body)
     }
 }

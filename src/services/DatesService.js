@@ -31,4 +31,5 @@ const dates = [
     placeholderObject,
     placeholderObject,
     placeholderObject,
+    placeholderObject
 ]

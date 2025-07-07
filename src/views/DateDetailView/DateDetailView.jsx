@@ -23,8 +23,7 @@ export default function DateDetailView() {
             {scrapbookMode ?
                 //========================== TRUE - SCRAPBOOK =======================
                 <>
-                    <div id='Scrapbook'>
-                        <p style={{color : 'red', fontSize: '20px'}}>LAYOUT IS BEING WORKED ON</p>
+                    <div id='Scrapbook' className={styles.scrapbook}>
                         <div className={styles.titleslide}>
                             <div className={styles.container}>
                                 <span className={styles.slidertext}>Fancy</span>
@@ -70,12 +69,18 @@ export default function DateDetailView() {
                             </section>
                         </div>
                         {/* TEXT ON NOTEBOOK PAPER */}
-                      <div>
-                        
-                      </div>
-                        {/* CASSETE PLAYER */}
                         <div>
 
+                        </div>
+                        {/* CASSETE PLAYER */}
+                        <div className={styles.cassette}>
+                        <div className={styles.scrapalbum}>
+                            <div className={styles.scrapsongtext}>The song that reminds me of this date:</div>
+                            <iframe src={date.song}
+                                loading="eager"
+                                className={styles.scrapsong}
+                                allowFullScreen allow="encrypted-media *; fullscreen *; clipboard-write *;" ></iframe>
+                        </div>
                         </div>
                     </div>
                 </> :
@@ -117,11 +122,11 @@ export default function DateDetailView() {
                                         </iframe>
                                     </div>
                                     <div className={styles.articlebody}>
-                                            {date.Description.map(
-                                                (paragraph, key) => (
-                                                    <p className={styles.articlebody}key={key}>{paragraph}</p>
-                                                )
-                                            )}
+                                        {date.Description.map(
+                                            (paragraph, key) => (
+                                                <p className={styles.articlebody} key={key}>{paragraph}</p>
+                                            )
+                                        )}
                                     </div>
                                 </section>
                             </section>

@@ -141,6 +141,7 @@ export default function MediaDetailView() {
                                             <iframe
                                                 width="560"
                                                 height="315"
+                                                key={index}
                                                 className={styles.showVideos}
                                                 src={`https://www.youtube.com/embed/${video.key}`}
                                                 title="YouTube video player"

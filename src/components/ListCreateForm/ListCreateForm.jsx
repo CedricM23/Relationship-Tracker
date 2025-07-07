@@ -48,7 +48,7 @@ export default function ListCreateForm({onCreate}) {
                 </div>
                 <div className={styles.formitem}>
                     <label htmlFor="region">Public list? </label>
-                    <select id="language" name="language" onChange={  (e) =>  setNewList({...newList,public: e.target.value === 'true'})}>
+                    <select id="region" name="region" onChange={  (e) =>  setNewList({...newList,public: e.target.value === 'true'})}>
                         <option value="true">Yes</option>
                         <option value="false">No</option>
                     </select>
