@@ -10,54 +10,69 @@ export default function FavoritesView() {
     const [lists, setLists] = useState([])
     const [listdetails, setListDetails] = useState([])
     let listid;
-    
+
     useEffect(() => {
         ShowService.getlists()
             .then((response) => {
+                console.log('problem?')
+                console.log(response.data)
                 setLists(response.data.results)
+
+                ShowService.getListDetailsById(8558849)
+                    .then((response) => {
+                        setListDetails(response.data.results)
+                        console.log('')
+                        console.log(response.data)
+                    }).catch(() => {
+                        alert('Could not get your list item! please try again!');
+                    });
+
+
+
+                console.log(lists)
             }).catch((error) => {
                 alert('Could not get your lists! please try again!')
             })
     }, [])
 
     function getLists() {
-    ShowService.getlists()
-        .then((response) => {
-            setLists(response.data.results);
-        }).catch((error) => {
-            alert('Could not get your lists! please try again!');
-        });
-}   
+        ShowService.getlists()
+            .then((response) => {
+                setLists(response.data.results);
+            }).catch((error) => {
+                alert('Could not get your lists! please try again!');
+            });
+    }
 
-    function getListDetails(id){
+    function getListDetails(id) {
         ShowService.getListDetailsById(id)
-        .then((response) => {
-        setListDetails(response.data.results)
-        }).catch(() => {
-            alert('Could not get your list item! please try again!');
-        });
+            .then((response) => {
+                setListDetails(response.data.results)
+            }).catch(() => {
+                alert('Could not get your list item! please try again!');
+            });
     }
 
-    function handleClick(){
+    function handleClick() {
         let element = document.getElementById("form");
-        if(element.style.display = "none"){
-        element.style.display = "flex";
+        if (element.style.display = "none") {
+            element.style.display = "flex";
         }
     }
 
-    function handleClose(){
+    function handleClose() {
         let element = document.getElementById("form");
-        if (element.style.display = "flex" ){
-        element.style.display = "none";
+        if (element.style.display = "flex") {
+            element.style.display = "none";
         }
     }
 
 
 
-    function handleDelete(event){
+    function handleDelete(event) {
         ShowService.deleteListById(event.currentTarget.dataset.id)
-        .catch((error) =>
-        console.log('could not delete your list'))
+            .catch((error) =>
+                console.log('could not delete your list'))
         getLists();
     }
 
@@ -65,29 +80,32 @@ export default function FavoritesView() {
     return (
         <>
             <WatchlistNavBar />
-            <p style={{color : 'red', fontSize: '20px'}}>DATA CANNOT BE PULLED FOR MULTIPLE LISTS</p>
+            <p style={{ color: 'red', fontSize: '20px' }}>DATA CANNOT BE PULLED FOR MULTIPLE LISTS</p>
             <button onClick={handleClick}>New List</button>
             <button onClick={handleClose}>Close List</button>
             <div className={styles.form} id="form">
-                <ListCreateForm onCreate={getLists}/>
+                <ListCreateForm onCreate={getLists} />
             </div>
+
+
+
             {lists.length < 1 ? <div className={styles.notext}>Create a new list to get started</div> :
                 <div>
                     {lists.map(
                         (list) => (
                             <div className={styles.list}>
                                 <div className={styles.header}>
-                                <h1 className={styles.listname}>{list.name}</h1>
-                                <div className={styles.middlesection}></div>
-                                <button onClick={handleDelete} className={styles.headerbutton} data-id={list.id}>
-                                    <FontAwesomeIcon icon={faTrash} className={styles.headericon}/>
-                                </button>
+                                    <h1 className={styles.listname}>{list.name}</h1>
+                                    <div className={styles.middlesection}></div>
+                                    <button onClick={handleDelete} className={styles.headerbutton} data-id={list.id}>
+                                        <FontAwesomeIcon icon={faTrash} className={styles.headericon} />
+                                    </button>
                                 </div>
                                 <div className={styles.listgrid} >
-                                    {getListDetails(list.id)}
+                             
                                     {listdetails.map(
                                         (item, index) => (
-                                            <div key={index}>{item.name}</div>
+                                            <div key={index}>{item.original_title}</div>
                                         )
                                     )}
                                 </div>
