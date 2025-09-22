@@ -97,8 +97,9 @@ export default function FavoritesView() {
                                 <div className={styles.header}>
                                     <h1 className={styles.listname}>{list.name}</h1>
                                     <div className={styles.middlesection}></div>
+                                    {/* Delete function not working in prod */}
                                     <button onClick={handleDelete} className={styles.headerbutton} data-id={list.id}>
-                                        <FontAwesomeIcon icon={faTrash} className={styles.headericon} />
+                                        { list.id === 8559472 ? <></> : <FontAwesomeIcon icon={faTrash} className={styles.headericon} />}
                                     </button>
                                 </div>
                                 <div className={styles.listgrid} >
