@@ -56,5 +56,9 @@ export default {
         return watchlistAPI.get(`/search/person?query=${Query}`)
     }, addItemTolist(id, body) {
         return listAPI.post(`list/${id}/items`, body)
+    }, isMediaAlreadyInList(listid, MediaId, mediaType){
+        return listAPI.get(`list/${listid}/item_status?media_id=${MediaId}&media_type=${mediaType}`)
+    }, DeleteItemFromList(id, body){
+        return listAPI.delete(`list/${id}/items`, { data: body })
     }
 }
