@@ -5,6 +5,7 @@ import ShowService from "../../services/ShowService";
 import WatchlistNavBar from '../../components/WatchlistNavBar/WatchlistNav'
 import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ListDetailCard from "../../components/ListDetailCard/ListDetailCard";
 
 export default function FavoritesView() {
     const [lists, setLists] = useState([])
@@ -92,25 +93,28 @@ export default function FavoritesView() {
 
             {lists.length < 1 ? <div className={styles.notext}>Create a new list to get started</div> :
                 <div>
-                    {/* move lists into sepereate componenets and render each lists data seperately (this might work) */}
+                    {/* move lists into sepereate componenets and render each lists data seperately (this might work) make sure Favorites list is on the top*/}
                     {lists.map(
                         (list) => (
-                            <div className={styles.list}>
-                                <div className={styles.header}>
-                                    <h1 className={styles.listname}>{list.name}</h1>
-                                    <div className={styles.middlesection}></div>
-                                    <button onClick={handleDelete} className={styles.headerbutton} data-id={list.id}>
-                                        { list.id === 8559472 ? <></> : <FontAwesomeIcon icon={faTrash} className={styles.headericon} />}
-                                    </button>
-                                </div>
-                                <div className={styles.listgrid} >
+                            // <div className={styles.list}>
+                            //     <div className={styles.header}>
+                            //         <h1 className={styles.listname}>{list.name}</h1>
+                            //         <div className={styles.middlesection}></div>
+                            //         <button onClick={handleDelete} className={styles.headerbutton} data-id={list.id}>
+                            //             { list.id === 8559472 ? <></> : <FontAwesomeIcon icon={faTrash} className={styles.headericon} />}
+                            //         </button>
+                            //     </div>
+                            //     <div className={styles.listgrid} >
                              
-                                    {listdetails.map(
-                                        (item, index) => (
-                                            <div key={index}>{item.original_title ? item.original_title : item.name} {item.id}</div>
-                                        )
-                                    )}
-                                </div>
+                            //         {listdetails.map(
+                            //             (item, index) => (
+                            //                 <div key={index}>{item.original_title ? item.original_title : item.name} {item.id}</div>
+                            //             )
+                            //         )}
+                            //     </div>
+                            // </div>
+                            <div className={styles.items}>
+                            <ListDetailCard list={list} />
                             </div>
                         )
                     )}
