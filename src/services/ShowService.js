@@ -43,7 +43,7 @@ export default {
     }, getListByID(list_id) {
         return watchlistAPI.get(`list/${list_id}`)
     }, getListDetailsById(id) {
-        return listReadApi.get(`list/${id}?language=en-US&page=1`)
+        return listAPI.get(`list/${id}?language=en-US&page=1`)
     }, deleteListById(list_id) {
         return watchlistAPI.delete(`/list/${list_id}`)
     }, getUpcomingMovie() {
