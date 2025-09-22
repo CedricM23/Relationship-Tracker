@@ -8,7 +8,7 @@ export default function WatchlistNav(){
         <Link to='/shows' className={styles.links}>Tv Shows</Link>
         <Link to='/upcoming' className={styles.links}>Upcoming</Link>
         <Link to='/trending' className={styles.links}>Trending</Link>
-        <Link to='/favorites' className={styles.links}>Favorites</Link>
+        <Link to='/favorites' className={styles.links}>My Lists</Link>
     </nav>
     )
 }
