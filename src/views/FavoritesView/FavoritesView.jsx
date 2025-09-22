@@ -106,7 +106,7 @@ export default function FavoritesView() {
                              
                                     {listdetails.map(
                                         (item, index) => (
-                                            <div key={index}>{item.original_title ? item.original_title : item.name}</div>
+                                            <div key={index}>{item.original_title ? item.original_title : item.name} {item.id}</div>
                                         )
                                     )}
                                 </div>
