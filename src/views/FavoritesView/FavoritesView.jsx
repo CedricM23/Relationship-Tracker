@@ -18,7 +18,8 @@ export default function FavoritesView() {
                 console.log(response.data)
                 setLists(response.data.results)
 
-                ShowService.getListDetailsById(8558849)
+                //Fav list hardcoded
+                ShowService.getListDetailsById(8559472)
                     .then((response) => {
                         setListDetails(response.data.results)
                         console.log('')
@@ -97,7 +98,6 @@ export default function FavoritesView() {
                                 <div className={styles.header}>
                                     <h1 className={styles.listname}>{list.name}</h1>
                                     <div className={styles.middlesection}></div>
-                                    {/* Delete function not working in prod */}
                                     <button onClick={handleDelete} className={styles.headerbutton} data-id={list.id}>
                                         { list.id === 8559472 ? <></> : <FontAwesomeIcon icon={faTrash} className={styles.headericon} />}
                                     </button>
@@ -106,7 +106,7 @@ export default function FavoritesView() {
                              
                                     {listdetails.map(
                                         (item, index) => (
-                                            <div key={index}>{item.original_title}</div>
+                                            <div key={index}>{item.original_title ? item.original_title : item.name}</div>
                                         )
                                     )}
                                 </div>
