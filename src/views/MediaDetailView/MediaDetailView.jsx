@@ -18,6 +18,8 @@ export default function MediaDetailView() {
     const [lists, setLists] = useState([])
     let hours = Math.floor(media.runtime / 60)
     let time = `${hours}h ${hours % 60}m`
+    const [statusMessage, setStatusMessage] = useState([])
+
     const payload = { items: [
         {
         media_type: type,
@@ -65,27 +67,48 @@ export default function MediaDetailView() {
             }).catch((error) => {
                 alert('Could not get your lists! please try again!')
             })
-
     }, [])
 
     function handleChange(e){
+        //not correctly getting if the item is in the list or not
         const selectedListId = e.target.value;
-        ShowService.addItemTolist(selectedListId, payload).then(
+
+        ShowService.isMediaAlreadyInList(selectedListId, id, type)
+        .then((response) => {
+            setStatusMessage(response.data)
+            //try the If/Then statement here
+        })
+
+        
+        if(statusMessage.status_message == "Success."){
+                if(type === "tv"){
+                alert(`${media.name} is already in`)
+            } else if (type === "movie"){
+                alert(`${media.title} is already in`)
+            }
+        } else if (statusMessage.success == "false"){
+             ShowService.addItemTolist(selectedListId, payload).then(
             (response) => {
+                if(type === "tv"){
                 alert(`${media.name} was added to your list`)
+            } else if (type === "movie"){
+                alert(`${media.title} was added to your list`)
+            }
             }
         ).catch((error) => {
             if (error.status === 403){
-                    alert(`${media.name} already exists in your list!`)
+                    alert(`${media.name} was not added to your list! Please Try again!`)
                 }
             }
         )
-    }
+    }}
+
     return (
         <>
             {loading ? "loading....." :
                 <section>
-                    <p style={{color : 'red', fontSize: '20px'}}>DOES NOT CHECK IF YOU ALREADY ADDED MEDIA TO A LIST. MOVIE CAN NOT BE ADDED YET</p>
+                    <p style={{color : 'red', fontSize: '20px'}}>DOES NOT CHECK IF YOU ALREADY ADDED MEDIA TO A LIST.</p>
+                    {JSON.stringify(statusMessage)}
                     <div className={styles.fullheader}>
                         <div className={styles.header} >
                             <div className={styles.imagesection}>
