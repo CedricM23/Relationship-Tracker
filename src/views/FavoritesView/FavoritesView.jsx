@@ -92,6 +92,7 @@ export default function FavoritesView() {
 
             {lists.length < 1 ? <div className={styles.notext}>Create a new list to get started</div> :
                 <div>
+                    {/* move lists into sepereate componenets and render each lists data seperately (this might work) */}
                     {lists.map(
                         (list) => (
                             <div className={styles.list}>
