@@ -114,7 +114,7 @@ export default function FavoritesView() {
                             //     </div>
                             // </div>
                             <div className={styles.items}>
-                            <ListDetailCard list={list} />
+                            <ListDetailCard list={list} imagewidth={185}/>
                             </div>
                         )
                     )}
