@@ -70,23 +70,23 @@ export default function MediaDetailView() {
     }, [])
 
     function handleChange(e){
-        //not correctly getting if the item is in the list or not
+        //not correctly getting if the item is in the list or not (commented out code is broken)
         const selectedListId = e.target.value;
 
-        ShowService.isMediaAlreadyInList(selectedListId, id, type)
-        .then((response) => {
-            setStatusMessage(response.data)
-            //try the If/Then statement here
-        })
+        // ShowService.isMediaAlreadyInList(selectedListId, id, type)
+        // .then((response) => {
+        //     setStatusMessage(response.data)
+        //     //try the If/Then statement here
+        // })
 
         
-        if(statusMessage.status_message == "Success."){
-                if(type === "tv"){
-                alert(`${media.name} is already in`)
-            } else if (type === "movie"){
-                alert(`${media.title} is already in`)
-            }
-        } else if (statusMessage.success == "false"){
+        // if(statusMessage.status_message == "Success."){
+        //         if(type === "tv"){
+        //         alert(`${media.name} is already in`)
+        //     } else if (type === "movie"){
+        //         alert(`${media.title} is already in`)
+        //     }
+        // } else if (statusMessage.success == "false"){
              ShowService.addItemTolist(selectedListId, payload).then(
             (response) => {
                 if(type === "tv"){
@@ -95,20 +95,21 @@ export default function MediaDetailView() {
                 alert(`${media.title} was added to your list`)
             }
             }
-        ).catch((error) => {
-            if (error.status === 403){
-                    alert(`${media.name} was not added to your list! Please Try again!`)
-                }
-            }
+        // ).catch((error) => {
+        //     if (error.status == 403){
+        //             alert(`${media.name} was not added to your list! Please Try again!`)
+        //         }
+        //     }
         )
-    }}
+    }
+// }
 
     return (
         <>
             {loading ? "loading....." :
                 <section>
                     <p style={{color : 'red', fontSize: '20px'}}>DOES NOT CHECK IF YOU ALREADY ADDED MEDIA TO A LIST.</p>
-                    {JSON.stringify(statusMessage)}
+
                     <div className={styles.fullheader}>
                         <div className={styles.header} >
                             <div className={styles.imagesection}>
