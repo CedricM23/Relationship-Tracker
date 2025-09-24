@@ -49,7 +49,7 @@ export default function ListDetailCard({ list, imagewidth }) {
                         <Swiper
                             modules={[Navigation, Pagination, Scrollbar, A11y]}
                             spaceBetween={100}
-                            slidesPerView={5}
+                            slidesPerView={2}
                             navigation
                             pagination={{ clickable: true }}
                             onSwiper={(swiper) => console.log(swiper)}
@@ -58,7 +58,7 @@ export default function ListDetailCard({ list, imagewidth }) {
                             breakpoints={{
                                 //when window is >= 768
                                 1024: {
-                                    slidesPerView: 6,
+                                    slidesPerView: 5,
                                     spaceBetween:10
                                 },
                                 920:{
