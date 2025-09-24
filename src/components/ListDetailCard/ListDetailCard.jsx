@@ -46,6 +46,7 @@ export default function ListDetailCard({ list, imagewidth }) {
             <div className={styles.items}>
                 {listdetails.length < 1 ? <div className={styles.placeholderText}> Add movies or tv shows to get started.</div> :
                     <div className={styles.desktop}>
+                        {/**slider not working correctly on mobile */}
                         <Swiper
                             modules={[Navigation, Pagination, Scrollbar, A11y]}
                             spaceBetween={30}
