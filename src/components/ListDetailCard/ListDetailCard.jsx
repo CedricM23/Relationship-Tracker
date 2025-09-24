@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import ShowService from "../../services/ShowService";
 import styles from "../ListDetailCard/ListDetailCard.module.css"
 import { Link } from "react-router-dom";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import placeholder from '../../images/no_poster.png'
 import { Navigation, Pagination, Scrollbar, A11y, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -27,6 +29,11 @@ export default function ListDetailCard({ list, imagewidth }) {
             });
     }, [])
 
+    function handleDelete(event) {
+
+    }
+
+
 
 
     return (
@@ -38,34 +45,63 @@ export default function ListDetailCard({ list, imagewidth }) {
             {/* list item */}
             <div className={styles.items}>
                 {listdetails.length < 1 ? <div className={styles.placeholderText}> Add movies or tv shows to get started.</div> :
-                    <Swiper
-                        modules={[Navigation, Pagination, Scrollbar, A11y,]}
-                        spaceBetween={-40}
-                        slidesPerView={4}
-                        navigation
-                        pagination={{ clickable: true }}
-                        onSwiper={(swiper) => console.log(swiper)}
-                        onSlideChange={() => console.log('slide change')}
-                    >
-                        {listdetails.map(
-                            (item) => (
-                                /* item container */
-                                <SwiperSlide>
-                                    <div className={styles.itemContainer}>
-                                        <Link to={`/watchlist/${item.id}/${item.media_type}`} className={styles.link}>
-                                            <div>
-                                                {item.poster_path ?
-                                                    <img src={`https://image.tmdb.org/t/p/w${imagewidth}/${item.poster_path}`} alt="poster" /> :
-                                                    <img className={styles.placeholder} src={placeholder} alt="" />}
-                                            </div>
-                                            <div className={styles.cardTitle}>{item.name ? item.name : item.title}</div>
+                    <div className={styles.desktop}>
+                        <Swiper
+                            modules={[Navigation, Pagination, Scrollbar, A11y]}
+                            spaceBetween={100}
+                            slidesPerView={5}
+                            navigation
+                            pagination={{ clickable: true }}
+                            onSwiper={(swiper) => console.log(swiper)}
+                            onSlideChange={() => console.log('slide change')}
+                            centeredSlides={false} //makes items in slider centered
+                            breakpoints={{
+                                //when window is >= 768
+                                1024: {
+                                    slidesPerView: 6,
+                                    spaceBetween:10
+                                },
+                                920:{
+                                    slidesPerView: 4,
+
+                                },
+                                //when window is >= 100px
+                                758: {
+                                    slidesPerView:3,
+                                    centeredSlides: false
+                                },
+                                100: {
+                                    slidesPerView: 2,
+                                    centeredSlides: true,
+                                    centerInsufficientSlides: true,
+                                    spaceBetween: 20
+
+                                }
+                            }}
+                        >
+                            {listdetails.map(
+                                (item) => (
+                                    /* item container */
+                                    <SwiperSlide>
+                                        <div className={styles.itemContainer}>
+                                            <Link to={`/watchlist/${item.id}/${item.media_type}`} className={styles.link}>
+                                                <div className={styles.image}>
+                                                    {item.poster_path ?
+                                                        <img src={`https://image.tmdb.org/t/p/w${imagewidth}/${item.poster_path}`} alt="poster" /> :
+                                                        <img className={styles.placeholder} src={placeholder} alt="" />}
+                                                </div>
+                                                <div className={styles.cardTitle}>{item.name ? item.name : item.title}</div>
+                                            </Link>
                                             {/** Add trash can to remove from list */}
-                                        </Link>
-                                    </div>
-                                </SwiperSlide>
-                            )
-                        )}
-                    </Swiper>
+                                            <button className={styles.headerbutton} data-id={list.id}>
+                                                <FontAwesomeIcon icon={faTrash} className={styles.headericon} />
+                                            </button>
+                                        </div>
+                                    </SwiperSlide>
+                                )
+                            )}
+                        </Swiper>
+                    </div>
                 }
             </div>
         </div >
