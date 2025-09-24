@@ -27,7 +27,7 @@ export default function ListDetailCard({ list, imagewidth }) {
             }).catch(() => {
                 alert('Could not get your list item! please try again!');
             });
-    }, [])
+    }, [listdetails, list.id])
 
     function handleDelete(event) {
 
@@ -72,8 +72,8 @@ export default function ListDetailCard({ list, imagewidth }) {
                                 },
                                 100: {
                                     slidesPerView: 2,
-                                    centeredSlides: true,
-                                    centerInsufficientSlides: true,
+                                    // centeredSlides: true,
+                                    // centerInsufficientSlides: true,
                                     spaceBetween: 20
 
                                 }
