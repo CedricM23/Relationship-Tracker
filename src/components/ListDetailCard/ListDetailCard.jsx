@@ -74,7 +74,7 @@ export default function ListDetailCard({ list, imagewidth }) {
                                     slidesPerView: 2,
                                     // centeredSlides: true,
                                     // centerInsufficientSlides: true,
-                                    spaceBetween: 20
+                                    spaceBetween: 50
 
                                 }
                             }}
