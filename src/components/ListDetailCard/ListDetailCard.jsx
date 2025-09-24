@@ -48,8 +48,10 @@ export default function ListDetailCard({ list, imagewidth }) {
                     <div className={styles.desktop}>
                         <Swiper
                             modules={[Navigation, Pagination, Scrollbar, A11y]}
-                            spaceBetween={100}
+                            spaceBetween={30}
                             slidesPerView={2}
+                       
+                            slidesOffsetAfter={20}
                             navigation
                             pagination={{ clickable: true }}
                             onSwiper={(swiper) => console.log(swiper)}
@@ -68,13 +70,15 @@ export default function ListDetailCard({ list, imagewidth }) {
                                 //when window is >= 100px
                                 758: {
                                     slidesPerView:3,
-                                    centeredSlides: false
+                                    centeredSlides: false,
+                                    slidesOffsetAfter: 40
                                 },
                                 100: {
                                     slidesPerView: 2,
                                     // centeredSlides: true,
                                     // centerInsufficientSlides: true,
-                                    spaceBetween: 50
+                                    spaceBetween: 50,
+                                    slidesOffsetAfter: 40
 
                                 }
                             }}
