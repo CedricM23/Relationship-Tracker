@@ -60,5 +60,9 @@ export default {
         return listAPI.get(`list/${listid}/item_status?media_id=${MediaId}&media_type=${mediaType}`)
     }, DeleteItemFromList(id, body){
         return listAPI.delete(`list/${id}/items`, { data: body })
+    } , GetUpcomingMovies(){
+        return watchlistAPI.get('https://api.themoviedb.org/3/movie/upcoming')
+    }, DiscoverShows(){
+        return watchlistAPI.get('https://api.themoviedb.org/3/discover/tv')
     }
 }
