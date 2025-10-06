@@ -18,11 +18,6 @@ export default function MediaCard({ media, imagewidth, title, mediaType }) {
          }
       ]
    }
-   const deleteLoad = {
-      items:[
-         
-      ]
-   }
 
    //checks to see if media is already in list and displays a solid heart if it is
    useEffect(() => {
