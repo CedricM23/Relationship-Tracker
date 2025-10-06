@@ -20,12 +20,14 @@ export default function MediaDetailView() {
     let time = `${hours}h ${hours % 60}m`
     const [statusMessage, setStatusMessage] = useState([])
 
-    const payload = { items: [
-        {
-        media_type: type,
-        media_id: id
-        }
-    ]}
+    const payload = {
+        items: [
+            {
+                media_type: type,
+                media_id: id
+            }
+        ]
+    }
     let selectedListId;
 
     const imagepath = 'https://image.tmdb.org/t/p/w500'
@@ -69,7 +71,7 @@ export default function MediaDetailView() {
             })
     }, [])
 
-    function handleChange(e){
+    function handleChange(e) {
         //not correctly getting if the item is in the list or not (commented out code is broken)
         const selectedListId = e.target.value;
 
@@ -79,7 +81,7 @@ export default function MediaDetailView() {
         //     //try the If/Then statement here
         // })
 
-        
+
         // if(statusMessage.status_message == "Success."){
         //         if(type === "tv"){
         //         alert(`${media.name} is already in`)
@@ -87,28 +89,28 @@ export default function MediaDetailView() {
         //         alert(`${media.title} is already in`)
         //     }
         // } else if (statusMessage.success == "false"){
-             ShowService.addItemTolist(selectedListId, payload).then(
+        ShowService.addItemTolist(selectedListId, payload).then(
             (response) => {
-                if(type === "tv"){
-                alert(`${media.name} was added to your list`)
-            } else if (type === "movie"){
-                alert(`${media.title} was added to your list`)
+                if (type === "tv") {
+                    alert(`${media.name} was added to your list`)
+                } else if (type === "movie") {
+                    alert(`${media.title} was added to your list`)
+                }
             }
-            }
-        // ).catch((error) => {
-        //     if (error.status == 403){
-        //             alert(`${media.name} was not added to your list! Please Try again!`)
-        //         }
-        //     }
+            // ).catch((error) => {
+            //     if (error.status == 403){
+            //             alert(`${media.name} was not added to your list! Please Try again!`)
+            //         }
+            //     }
         )
     }
-// }
+    // }
 
     return (
         <>
             {loading ? "loading....." :
                 <section>
-                    <p style={{color : 'red', fontSize: '20px'}}>DOES NOT CHECK IF YOU ALREADY ADDED MEDIA TO A LIST.</p>
+                    <p style={{ color: 'red', fontSize: '20px' }}>DOES NOT CHECK IF YOU ALREADY ADDED MEDIA TO A LIST.</p>
 
                     <div className={styles.fullheader}>
                         <div className={styles.header} >
@@ -136,12 +138,12 @@ export default function MediaDetailView() {
                                             <FontAwesomeIcon icon={faList} />
                                         </button>}>
                                         <div className="popuptext"><Link className="dropdownlink">Create a new list</Link></div>
-                                        
+
                                         <select className="popupselect" onChange={handleChange}>
                                             <option>Choose a list</option>
-                                        {lists.map(
-                                            (list, index) => (<option  key={index} value={list.id}>{list.name}</option>)
-                                        )}
+                                            {lists.map(
+                                                (list, index) => (<option key={index} value={list.id}>{list.name}</option>)
+                                            )}
                                         </select>
                                     </Popup>
                                     <button className={styles.headerbutton}>
@@ -154,7 +156,7 @@ export default function MediaDetailView() {
                         </div>
                     </div>
 
-                                        {selectedListId}
+                    {selectedListId}
                     {mediavideos.length > 0 ?
                         <div>
                             <h1 className={styles.videosheader}>Clips : {mediavideos.length} </h1>
