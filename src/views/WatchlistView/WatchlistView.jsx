@@ -16,6 +16,8 @@ export default function WatchlistView() {
         setSearch(event.target.value)
     }
 
+    //might have to refactor, results are slow, maybe to due to item status liked check
+
    useEffect(() => {
     async function fetchData() {
         try {
