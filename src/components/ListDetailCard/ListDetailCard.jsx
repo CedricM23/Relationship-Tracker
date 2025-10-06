@@ -16,6 +16,7 @@ import 'swiper/css/effect-fade'
 
 export default function ListDetailCard({ list, imagewidth }) {
     const [listdetails, setListDetails] = useState([])
+    // ------ NOT WORKING YET -------
 
     useEffect(() => {
         //Fav list hardcoded
@@ -27,12 +28,26 @@ export default function ListDetailCard({ list, imagewidth }) {
             }).catch(() => {
                 alert('Could not get your list item! please try again!');
             });
-    }, [listdetails, list.id])
+    }, [listdetails])
 
+
+
+    // ------ WORKING BUT SLOW -------
     function handleDelete(event) {
-
+        const payload = {
+            items: [
+                {
+                    media_type: event.target.value,
+                    media_id: event.currentTarget.dataset.id
+                }
+            ]
+        }
+        ShowService.DeleteItemFromList(list.id, payload)
+            .catch((error) =>
+                console.log(error)
+            )
+        alert(`${event.currentTarget.dataset.name} has been removed from you ${list.name} list`)
     }
-
 
 
 
@@ -41,17 +56,17 @@ export default function ListDetailCard({ list, imagewidth }) {
             <div className={styles.listTitle}>
                 {list.name}
             </div>
-            {/* {JSON.stringify(listdetails)} */}
+            {/* {JSON.stringify(list.id)} --- API TESTING */}
             {/* list item */}
             <div className={styles.items}>
                 {listdetails.length < 1 ? <div className={styles.placeholderText}> Add movies or tv shows to get started.</div> :
                     <div className={styles.desktop}>
-                        {/**slider not working correctly on mobile */}
+                        {/**slider not working correctly on mobile, offset is wrong (needs to be troubleshooted) */}
                         <Swiper
                             modules={[Navigation, Pagination, Scrollbar, A11y]}
                             spaceBetween={30}
                             slidesPerView={2}
-                       
+
                             slidesOffsetAfter={20}
                             navigation
                             pagination={{ clickable: true }}
@@ -62,15 +77,15 @@ export default function ListDetailCard({ list, imagewidth }) {
                                 //when window is >= 768
                                 1024: {
                                     slidesPerView: 5,
-                                    spaceBetween:10
+                                    spaceBetween: 10
                                 },
-                                920:{
+                                920: {
                                     slidesPerView: 4,
 
                                 },
                                 //when window is >= 100px
                                 758: {
-                                    slidesPerView:3,
+                                    slidesPerView: 3,
                                     centeredSlides: false,
                                     slidesOffsetAfter: 40
                                 },
@@ -97,9 +112,9 @@ export default function ListDetailCard({ list, imagewidth }) {
                                                 </div>
                                                 <div className={styles.cardTitle}>{item.name ? item.name : item.title}</div>
                                             </Link>
-                                            {/** Add trash can to remove from list */}
-                                            <button className={styles.headerbutton} data-id={list.id}>
-                                                <FontAwesomeIcon icon={faTrash} className={styles.headericon} />
+                                            {/** Delete Button */}
+                                            <button className={styles.headerbutton} data-id={item.id} data-name={item.name ? item.name : item.title} onClick={handleDelete} value={item.media_type}>
+                                               Delete
                                             </button>
                                         </div>
                                     </SwiperSlide>
