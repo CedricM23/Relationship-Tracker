@@ -95,7 +95,8 @@ export default function FavoritesView() {
                     {/* move lists into sepereate componenets and render each lists data seperately (this might work) make sure Favorites list is on the top*/}
                     {lists.map(
                         (list) => (
-                            <div className={styles}>
+                            <div className={styles.listtitle}>
+                                {/** FOR THE LOVE OF GOD DO NOT REMOVE THIS TERNARY OR CHANGE THE ID */}
                                 {/* <button onClick={handleDelete} className={styles.headerbutton} data-id={list.id}>
                                     {list.id === 8559472 ? <></> : <FontAwesomeIcon icon={faTrash} className={styles.headericon} />}
                                 </button> */}
