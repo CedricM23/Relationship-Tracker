@@ -18,7 +18,6 @@ export default function MediaDetailView() {
     const [lists, setLists] = useState([])
     let hours = Math.floor(media.runtime / 60)
     let time = `${hours}h ${hours % 60}m`
-    const [statusMessage, setStatusMessage] = useState([])
 
     const payload = {
         items: [
@@ -155,6 +154,8 @@ export default function MediaDetailView() {
                             </div>
                         </div>
                     </div>
+
+                    {/* sdsd */}
 
                     {selectedListId}
                     {mediavideos.length > 0 ?
